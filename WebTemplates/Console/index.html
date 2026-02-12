@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Remote Win32 Console</title>
+    <script src="https://unpkg.com/xterm/lib/xterm.js"></script>
+    <script src="https://unpkg.com/xterm-addon-fit/lib/xterm-addon-fit.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css" />
+    <style>
+        html, body, #term {
+            height: 100%;
+            margin: 0
+        }
+    </style>
+</head>
+<body>
+    <div id="term"></div>
+    <script>
+        const term = new Terminal({ cursorBlink: true, convertEol: true});
+        const fit = new FitAddon.FitAddon();
+        term.loadAddon(fit);
+        term.open(document.getElementById('term'));
+        fit.fit();
+
+        const socket = new WebSocket('ws://localhost:9001/term');
+
+        socket.addEventListener('message', e => term.write(e.data));
+        term.onData(data => socket.send(data));
+
+        window.addEventListener('resize', () => fit.fit());
+    </script>
+</body>
+</html>

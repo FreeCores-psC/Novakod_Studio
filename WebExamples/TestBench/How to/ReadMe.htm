@@ -1,0 +1,483 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Calibri Light";
+	panose-1:2 15 3 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Segoe UI Emoji";
+	panose-1:2 11 5 2 4 2 4 2 2 3;}
+@font-face
+	{font-family:"Bitstream Vera Sans Mono";
+	panose-1:2 11 6 9 3 8 4 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	line-height:107%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;
+	font-weight:normal;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Title Char";
+	margin:0in;
+	font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
+	{mso-style-link:"Title Char";
+	margin:0in;
+	font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
+	{mso-style-link:"Title Char";
+	margin:0in;
+	font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
+	{mso-style-link:"Title Char";
+	margin:0in;
+	font-size:28.0pt;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Calibri Light",sans-serif;
+	color:#2F5496;}
+span.TitleChar
+	{mso-style-name:"Title Char";
+	mso-style-link:Title;
+	font-family:"Calibri Light",sans-serif;
+	letter-spacing:-.5pt;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:39.7pt 53.85pt 45.35pt 53.85pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoTitle align=center style='text-align:center'>Arduino® Multi-process
+for FPGA</p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt;line-height:107%'>Have you dreamed of using the huge
+processing power of FPGAs? Wait no longer!</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:14.0pt;line-height:107%'>With the psC language,  you will use
+your Arduino programming skills to program FPGAs.</span></p>
+
+<h1>Run each task on his own processor</h1>
+
+<p class=MsoNormal><b>You can use 100's and more processors and harness the
+FPGA computing power.</b></p>
+
+<p class=MsoNormal>As shown below, tasks &nbsp;in an Arduino program are
+running sequentially inside a loop. In a psC program, tasks are running in
+parallel in their own processor. For example, a task could interface with the
+console while other tasks could process audio, perform image processing or
+control robot motors, all without interfering with each other.&nbsp;</p>
+
+<p class=MsoNormal><b>This is the ideal machine for embedded systems.</b></p>
+
+<p class=MsoNormal><b><img width=553 height=230 id="Picture 13"
+src="ReadMe_files/image001.jpg"></b></p>
+
+<h1>A High-Performance Compiler</h1>
+
+<p class=MsoNormal>The compiler creates a highly optimized tiny custom like
+processor, without program memory or ALU. The processor still has a Program
+Counter and supports function call. Each instruction is directly coded in VHDL.
+Synchronous communication is very efficient and is based on simple values and
+events. Programming is as simple as Arduino programming. As discussed above, the
+Arduino loop is broken down for execution on multiple processors. In addition, most
+DSP algorithms (audio, FFT, image) can be almost directly coded on this
+processor. </p>
+
+<h1>Nearly Identical Code</h1>
+
+<p class=MsoNormal><span style='font-size:12.0pt;line-height:107%'>The psC
+language is not an HDL – Hardware Description Language, like VHDL or Verilog.
+The psC language is the first general purpose sequential language for FPGFA
+programming. The table below shows that the psC code for a counter is nearly identical
+to the C++ code.</span></p>
+
+<table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0 width=680
+ style='width:510.05pt;border-collapse:collapse;border:none'>
+ <tr>
+  <td width=340 valign=top style='width:254.9pt;border:solid windowtext 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><strong><span
+  style='font-size:18.0pt;font-family:"Calibri",sans-serif'>Arduino® Code in
+  C++</span></strong></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>enum</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>Cmd_t</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>{</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>cReset</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>,</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>cUp</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>,</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>cDown</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>,</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>cLoad</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>};</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>void</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>setup</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>()</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>{</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>Value</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>=</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#BE0169'>0</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>}</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>void</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>loop</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>()</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>{</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>      </span></i></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>switch</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>(</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>iCmd</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>)</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>{</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>        </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>case</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>cReset</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>:</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#002953'>Value</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>=</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#0080FF'>0b</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>break</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>        </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>case</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>cUp</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>:</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#002953'>Value</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>++;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>break</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>        </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>case</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>cDown</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>:</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#002953'>Value</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>--;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>break</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>        </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>case</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>cLoad</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>:</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#002953'>Value</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>=</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>NewValue</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>};</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>  </span></i></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>};</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>  </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:green'>// Infinite loop</span></p>
+  </td>
+  <td width=340 valign=top style='width:255.15pt;border:solid windowtext 1.0pt;
+  border-left:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><strong><span
+  style='font-size:18.0pt;font-family:"Calibri",sans-serif'>Code for FPGA in
+  psC</span></strong></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>enum</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>Cmd_t</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>{</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>cReset</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>,</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>cUp</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>,</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>cDown</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>,</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>cLoad</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>};</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>setup</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>()</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>{</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>Value</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>=</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'> </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#BE0169'>0</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>}</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>&nbsp;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>loop</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>()</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>{</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#6428B4'>switch</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>(</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#002953'>iCmd</span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>)</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>{</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>        </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>case</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>cReset</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>:</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#002953'>Value</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>=</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#0080FF'>0b</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>break</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>        </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>case</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>cUp</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>:</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#002953'>Value</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>++;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>break</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>        </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>case</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>cDown</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>:</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#002953'>Value</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>--;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>break</span><span style='font-size:
+  10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>        </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#6428B4'>case</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>cLoad</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>:</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>            </span></i><span style='font-size:10.0pt;font-family:
+  "Bitstream Vera Sans Mono";color:#002953'>Value</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>=</span><i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:teal'> </span></i><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#002953'>NewValue</span><span
+  style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";color:#DB0B0B'>;</span></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>    </span></i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>};</span><i><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:teal'>  </span></i></p>
+  <p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+  none'><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:#DB0B0B'>};  </span><span style='font-size:10.0pt;font-family:"Bitstream Vera Sans Mono";
+  color:green'>// Infinite loop</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoNormal><b><span style='font-family:"Segoe UI Emoji",sans-serif'>&nbsp;</span></b></p>
+
+</div>
+
+</body>
+
+</html>

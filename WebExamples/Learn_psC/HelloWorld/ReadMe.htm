@@ -1,0 +1,714 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+@font-face
+	{font-family:"Aptos Display";}
+@font-face
+	{font-family:"Cascadia Mono";
+	panose-1:2 11 6 9 2 0 0 2 0 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:.25in;
+	margin-right:0in;
+	margin-bottom:4.0pt;
+	margin-left:0in;
+	line-height:115%;
+	page-break-after:avoid;
+	font-size:20.0pt;
+	font-family:"Aptos Display",sans-serif;
+	color:#0F4761;
+	font-weight:normal;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:.5in;
+	line-height:115%;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Aptos Display",sans-serif;
+	color:#0F4761;}
+.MsoChpDefault
+	{font-size:12.0pt;
+	font-family:"Aptos",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:115%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+style='font-size:28.0pt;font-family:"Aptos Display",sans-serif;color:black;
+letter-spacing:-.5pt'>First program: Hello World!</span></p>
+
+<p class=MsoNormal style='line-height:13.8pt'><span style='font-size:13.5pt;
+color:black'>This example shows how the classic “Hello World!” program is coded
+in&nbsp;psC.</span></p>
+
+<h1>Program structure</h1>
+
+<p class=MsoNormal style='line-height:13.8pt'><span style='font-size:13.5pt;
+color:black'>In C++ there is a main() function. In&nbsp;psC&nbsp;there is a
+main component and one or more sub-components. Sub-components communicate with
+signals. As shown on the figure, in this example, there is one
+sub-component,&nbsp;CHello, and two signals connecting the external
+ports&nbsp;iConsole&nbsp;&nbsp;and&nbsp;oConsole&nbsp;to the component
+corresponding ports.</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0>
+ <tr>
+  <td width=169 style='width:126.75pt;padding:0in 0in 0in 0in'></td>
+ </tr>
+ <tr>
+  <td style='padding:0in 0in 0in 0in'></td>
+  <td style='padding:0in 0in 0in 0in'></td>
+ </tr>
+</table>
+
+<p class=MsoNormal style='line-height:13.8pt'>
+
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td width=175 height=0></td>
+ </tr>
+ <tr>
+  <td></td>
+  <td><img width=481 height=65 src="ReadMe_files/image001.jpg"
+  alt="A black text with black arrows&#10;&#10;AI-generated content may be incorrect."></td>
+ </tr>
+</table>
+
+<br clear=ALL>
+<span style='font-size:13.5pt;color:black'>Here is how this is coded:</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#6428B4'>component</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#002953'>main</span><span style='font-family:"Cascadia Mono";color:#DB0B0B'>(</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>in</span><i><span style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#226A86'>ubyte</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>iConsole</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>,</span><span
+style='font-family:"Cascadia Mono";color:black'>                </span><span
+style='font-family:"Cascadia Mono";color:green'>// &lt;&lt;&lt; External ports
+&gt;&gt;&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>out</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#226A86'>ubyte</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#002953'>oConsole</span><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>component</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#002953'>CHello</span><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>(</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>in</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>active</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#226A86'>ubyte</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>iConsole</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>,</span><span
+style='font-family:"Cascadia Mono";color:black'>             </span><span
+style='font-family:"Cascadia Mono";color:green'>// &lt;&lt;&lt; Sub-component
+ports &gt;&gt;&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>out</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>active</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#226A86'>ubyte</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>oConsole</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>)</span><span
+style='font-family:"Cascadia Mono";color:black'> </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:green'>// &lt;&lt;&lt; Code
+of&nbsp;CHello&nbsp;component &gt;&gt;&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>};</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:green'>// Process declaration</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#002953'>main</span><span style='font-family:"Cascadia Mono";color:#DB0B0B'>::</span><span
+style='font-family:"Cascadia Mono";color:#002953'>CHello</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>PHello</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>;</span><span
+style='font-family:"Cascadia Mono";color:green'>     // &lt;&lt;&lt; The
+process PHello is an instance</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#002953'>                             </span><span style='font-family:
+"Cascadia Mono";color:green'>//         of the component CHello &gt;&gt;&gt;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:green'>// Signal declaration</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span lang=FR-CA
+style='font-family:"Cascadia Mono";color:#226A86'>ubyte</span><i><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:#002953'>sConsoleIn</span><i><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;</span></i><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:#DB0B0B'>=</span><i><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:#DB0B0B'>{</span><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:#002953'>PHello</span><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:#DB0B0B'>.</span><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:#002953'>iConsole</span><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:#DB0B0B'>,</span><i><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:#002953'>iConsole</span><span
+lang=FR-CA style='font-family:"Cascadia Mono";color:#DB0B0B'>};</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span lang=FR-CA style='font-family:
+"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#226A86'>ubyte</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>sConsoleOut</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>=</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>{</span><span
+style='font-family:"Cascadia Mono";color:#002953'>PHello</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>.</span><span
+style='font-family:"Cascadia Mono";color:#002953'>oConsole</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>,</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>oConsole</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>};</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>};</span></p>
+
+<h1>Constant string declaration</h1>
+
+<p class=MsoNormal style='line-height:13.8pt'><span style='font-size:13.5pt;
+color:black'>String&nbsp;constants&nbsp;are declared as&nbsp;follows:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+none'><i><span style='font-family:"Cascadia Mono";color:teal'>    </span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>const</span><i><span
+style='font-family:"Cascadia Mono";color:teal'> </span></i><span
+style='font-family:"Cascadia Mono";color:#226A86'>string</span><i><span
+style='font-family:"Cascadia Mono";color:teal'> </span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>cHelloWorld</span><i><span
+style='font-family:"Cascadia Mono";color:teal'> </span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>=</span><i><span
+style='font-family:"Cascadia Mono";color:teal'> </span></i><span
+style='font-family:"Cascadia Mono";color:#B35900'>&quot;Hello Novakod
+World!\n&quot;</span><span style='font-family:"Cascadia Mono";color:#DB0B0B'>;</span></p>
+
+<h1>Memory declaration</h1>
+
+<p class=MsoNormal style='line-height:13.8pt'><span style='font-size:13.5pt;
+color:black'>In C++ there is a global data memory. In&nbsp;psC, since resources
+must be minimized, you declare only the memory you need, here is an example
+where an array of 22&nbsp;ubytes&nbsp;is declared:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#226A86'>ubyte</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>memory</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>sHelloWorld</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>[</span><span
+style='font-family:"Cascadia Mono";color:#BE0169'>22</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>]</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>};</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;</span></i></p>
+
+<h1>ARDUINO like operation</h1>
+
+<p class=MsoNormal style='line-height:13.8pt'><span style='font-size:13.5pt;
+color:black'>The basic execution model in Arduino is based on two&nbsp;functions:
+setup() and loop().</span></p>
+
+<p class=MsoListParagraph style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+0in;margin-left:.25in;text-indent:-.25in;line-height:18.4pt'><span
+style='font-size:16.0pt;font-family:Wingdings;color:#0F4761'>Ø<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+16.0pt;font-family:"Aptos Display",sans-serif;color:#0F4761'>setup() function</span></p>
+
+<p class=MsoNormal style='line-height:13.8pt'><span style='font-size:13.5pt;
+color:black'>The setup() function is executed once at startup.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+none'><i><span style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#226A86'>uint</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>:</span><span
+style='font-family:"Cascadia Mono";color:#BE0169'>5 </span><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>    </span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>setup</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:green'>// Need to copy the constant
+string to memory</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+none'><i><span style='font-family:"Cascadia Mono";color:teal'>        </span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><i><span
+style='font-family:"Cascadia Mono";color:teal'> </span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>=</span><i><span
+style='font-family:"Cascadia Mono";color:teal'> </span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>(</span><span
+style='font-family:"Cascadia Mono";color:#226A86'>uint</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>:</span><span
+style='font-family:"Cascadia Mono";color:#BE0169'>5</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>)</span><span
+style='font-family:"Cascadia Mono";color:#BE0169'>0</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>;</span><i><span
+style='font-family:"Cascadia Mono";color:teal'> </span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal;text-autospace:
+none'><i><span style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>while</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>(</span><span
+style='font-family:"Cascadia Mono";color:#002953'>cHelloWorld</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>[</span><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>]</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>!=</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#BE0169'>0</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>)</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>sHelloWorld</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>[</span><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>]</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>=</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>cHelloWorld</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>[</span><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>];</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>++;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>}</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>sHelloWorld</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>[</span><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>]</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>=</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#BE0169'>0ub</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>;</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:green'>// End of string</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>return</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>}</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i></p>
+
+<p class=MsoListParagraph style='margin-top:12.0pt;margin-right:0in;margin-bottom:
+0in;margin-left:.25in;text-indent:-.25in;line-height:18.4pt'><span
+style='font-size:16.0pt;font-family:Wingdings;color:#0F4761'>Ø<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+16.0pt;font-family:"Aptos Display",sans-serif;color:#0F4761'>loop() function</span></p>
+
+<p class=MsoNormal style='line-height:13.8pt'><span style='font-size:13.5pt;
+color:black'>The loop() function, as its name implies, is continuously
+executed.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>loop</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:green'>// Wait for a&nbsp;char&nbsp;to
+start</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>while</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>(!</span><span
+style='font-family:"Cascadia Mono";color:#004A95'>istrig</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>(</span><span
+style='font-family:"Cascadia Mono";color:#002953'>iConsole</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>))</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>{};</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:green'>// Call puts() as in C++</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>call</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>puts</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>(</span><span
+style='font-family:"Cascadia Mono";color:#002953'>sHelloWorld</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>); </span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:green'>// As for Arduino, loops
+forever</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:green'>// Type another character to
+repeat</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;line-height:normal'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>}</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;</span></i></p>
+
+<h1>StdioLib&nbsp;-&nbsp;psC&nbsp;version of&nbsp;stdio.h</h1>
+
+<p class=MsoNormal style='line-height:13.8pt'><span style='font-size:13.5pt;
+color:black'>Here is a simplified version of the library “StdioLib”,
+corresponding to the C++ library “stdio.h”. Here, we have one function “puts()”
+to write a string to the port “oConsole”,&nbsp;stdout&nbsp;in C++.</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#6428B4'>library</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#002953'>StdioLib</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style='font-family:"Cascadia Mono";
+color:green'>// These ports must be declared </span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:green'>    //       in the component calling puts()</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>extern</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>in </span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>active</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#226A86'>ubyte</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#002953'>iConsole</span><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>extern</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>out</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>active</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#226A86'>ubyte</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#002953'>oConsole</span><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#6428B4'>function</span><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#002953'>puts</span><span style='font-family:"Cascadia Mono";color:#DB0B0B'>(</span><span
+style='font-family:"Cascadia Mono";color:#226A86'>ubyte</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>&amp;</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>str</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>)</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:green'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Local variable
+declaration</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal;text-autospace:none'><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;    </span></i><span
+style='font-family:"Cascadia Mono";color:#226A86'>uint</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>:</span><span
+style='font-family:"Cascadia Mono";color:#BE0169'>5 </span><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>{</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>=</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#BE0169'>0</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>while</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>(</span><span
+style='font-family:"Cascadia Mono";color:#002953'>str</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>[</span><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>]</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>!=</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#BE0169'>0</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>)</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>{</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>oConsole</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>:=</span><i><span
+style='font-family:"Cascadia Mono";color:teal'>&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>str</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>[</span><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>];</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#002953'>i</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>++;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>};</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span
+style='font-family:"Cascadia Mono";color:#6428B4'>return</span><span
+style='font-family:"Cascadia Mono";color:#DB0B0B'>;</span></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><i><span style='font-family:"Cascadia Mono";
+color:teal'>&nbsp;&nbsp;&nbsp;&nbsp;</span></i><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>}</span><i><span style='font-family:"Cascadia Mono";color:teal'>&nbsp;&nbsp;</span></i></p>
+
+<p class=MsoNormal style='margin-top:0in;margin-right:0in;margin-bottom:0in;
+margin-left:28.35pt;line-height:normal'><span style='font-family:"Cascadia Mono";
+color:#DB0B0B'>};</span></p>
+
+<p class=MsoNormal style='line-height:13.8pt'><span style='color:black'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:28.35pt'>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

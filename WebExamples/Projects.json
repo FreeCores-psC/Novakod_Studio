@@ -1,0 +1,72 @@
+[
+  {
+    "Id": "Learn_psC",
+    "Projects": 
+    [
+      {
+        "Id": "Introduction"
+      },
+      {
+        "Id": "HelloWorld",
+        "SimulationMode": "Console",
+        "N": "50000000",
+        "Libraries": []
+      },
+      {
+        "Id": "Loopback",
+        "SimulationMode": "Console",
+        "N": "50000000",
+        "Library": []
+      },
+      {
+        "Id": "Counter",
+        "SimulationMode": "Console",
+        "N": "50000000",
+        "Library": []
+      }
+    ]
+  },
+  {
+    "Id": "TestBench",
+    "Projects": 
+    [
+      {
+        "Id": "How to"
+      },
+      {
+        "Id": "CounterBench",
+        "SimulationMode": "Wave",
+        "N": "2000",
+        "Libraries": []
+      }
+    ]
+  },
+  {
+    "Id" :"Sandbox",
+    "Projects":
+    [
+      {
+        "Id": "How to"
+      },
+      {
+        "Id": "Console",
+        "SimulationMode": "Console",
+        "N": "20000000",
+        "Libraries": []
+      },
+      {
+        "Id": "Wave",
+        "SimulationMode": "Wave",
+        "N": "20000000",
+        "Libraries": []
+      },
+      {
+        "Id": "DE1SoC",
+        "SimulationMode": "DE1SoC",
+        "N": "20000000",
+        "Libraries": []
+      }
+    ]
+  }
+]
+ 
