@@ -1,8 +1,7 @@
 [
   {
     "Id": "Learn_psC",
-    "Projects": 
-    [
+    "Projects": [
       {
         "Id": "Introduction"
       },
@@ -28,8 +27,7 @@
   },
   {
     "Id": "TestBench",
-    "Projects": 
-    [
+    "Projects": [
       {
         "Id": "How to"
       },
@@ -42,28 +40,41 @@
     ]
   },
   {
-    "Id" :"Sandbox",
-    "Projects":
-    [
+    "Id": "DE1SoC",
+    "Projects": [
+      {
+        "Id": "How to"
+      },
+      {
+        "Id": "Counter",
+        "SimulationMode": "Wave",
+        "N": "2000",
+        "Libraries": []
+      }
+    ]
+  },
+  {
+    "Id": "Sandbox",
+    "Projects": [
       {
         "Id": "How to"
       },
       {
         "Id": "Console",
         "SimulationMode": "Console",
-        "N": "20000000",
+        "N": "50000000",
         "Libraries": []
       },
       {
         "Id": "Wave",
         "SimulationMode": "Wave",
-        "N": "20000000",
+        "N": "2000",
         "Libraries": []
       },
       {
         "Id": "DE1SoC",
         "SimulationMode": "DE1SoC",
-        "N": "20000000",
+        "N": "50000000",
         "Libraries": []
       }
     ]

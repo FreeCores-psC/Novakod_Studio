@@ -12,9 +12,11 @@ echo -------------------------------------
 echo Execution in simulation:    %%~nxf
 echo -------------------------------------
 cd %currentdir%   
-start execute SessionID 5000000 9001 0 0
+start execute SessionID 50000000 9001 0 0
 
 start index.html
+
+exit  
 
   
 

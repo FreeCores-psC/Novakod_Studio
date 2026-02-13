@@ -16,7 +16,4 @@ start execute SessionID 50000000 9001 0 0
 
 start index.html
 
-  
-
-                         
-
+exit  

@@ -25,6 +25,7 @@ REM ---------------------------------------
 start https://vc.drom.io/?github=FreeCores-psC/vcdFiles/main/%SessionID%.vcd
 
 rem cleanup to prevent accumulation of files
-del  %currentdir%\targets\%SessionID%.*
+rem del  %currentdir%\targets\%SessionID%.*
+rem del  %vcdfile%
 
 exit
