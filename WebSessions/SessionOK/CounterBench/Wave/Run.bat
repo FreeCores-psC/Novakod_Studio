@@ -54,6 +54,6 @@ echo Displaying waveform:    %%~nxf
 echo Parameter is SessionID
 echo -------------------------------------
 cd %currentdir%      
-call DisplayWaveform.bat %SessionID%
+rem call DisplayWaveform.bat %SessionID%
 
 exit                  

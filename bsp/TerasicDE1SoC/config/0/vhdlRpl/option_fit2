@@ -1,0 +1,1 @@
+%top_circuit_name% --csf="%work_vhdl_path%/top_main.qsf"
