@@ -1,0 +1,100 @@
+***  Installation Started 02/04/2026 19:51  ***
+Title: Novakod Terasic DE1 SoC BSP Installation
+Source: H:\20221_psC\0210_Bsp_DE1SoC\1.1\bin\TerasicDE1SoC.exe | 08-29-2025 | 11:08:36 | 13500154
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\UNWISE.EXE | 07-26-2002 | 18:02:06 | | 153088 | 5be5019b
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Terasic DE1 SoC BSP
+RegDB Val: Novakod Terasic DE1 SoC BSP
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Old: Novakod Terasic DE1 SoC BSP
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Terasic DE1 SoC BSP
+RegDB Val: C:\NOBA70~1\bsp\TERASI~1\UNWISE.EXE C:\NOBA70~1\bsp\TERASI~1\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+RegDB Old: C:\NOVAKO~4\bsp\TERASI~1\UNWISE.EXE C:\NOVAKO~4\bsp\TERASI~1\INSTALL.LOG
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\lib
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\lib\TerasicDE1SoC.dll | 04-02-2025 | 14:22:16 | | 3683840 | a597c1ee
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\lib\TerasicDE1SoC.pdb | 04-02-2025 | 14:22:16 | | 38350848 | ac6c2d92
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\BuiltInConfiguration.ini | 02-23-2025 | 17:00:34 | | 203 | 2bce2f1d
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\UserDefinedConfigurations.ini | 10-14-2023 | 14:49:28 | | 33 | b100fe9
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\BoardInfo.ini | 02-23-2025 | 16:23:50 | | 343 | 13688564
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\BoardPict.jpg | 04-02-2025 | 18:32:50 | | 509700 | 1410f0dd
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\BoardPins.ini | 01-16-2024 | 13:09:04 | | 9589 | acd31e4a
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\DefaultVga.jpg | 04-02-2025 | 14:59:46 | | 91904 | 715095ad
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\DpRamDriver.ini | 01-16-2024 | 17:29:36 | | 705 | 15e30f0d
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\LedSwVgaDriver.ini | 02-01-2024 | 18:18:42 | | 2437 | 6f967473
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\MemoryBanks.ini | 01-16-2024 | 18:03:08 | | 1369 | f73ad457
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\ReadMe.txt | 02-23-2025 | 16:35:12 | | 792 | ae7f19f7
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\batch
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\batch\Impl.bat | 03-26-2025 | 17:25:50 | | 804 | 81266d1a
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\batch\synth.bat | 02-26-2024 | 19:10:04 | | 69 | 5439e63b
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\lib
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\lib\AudioPLL_0002.v | 12-13-2023 | 15:48:36 | | 2161 | b57bdf36
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\lib\BoardLib.vhd | 12-13-2023 | 15:48:36 | | 11777 | 89a0dc39
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\lib\BoardPLL.vhd | 12-13-2023 | 15:48:36 | | 18130 | 9f34e8ed
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\lib\I2C_AV_Config.v | 12-13-2023 | 15:48:36 | | 4828 | 45526a94
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\lib\I2C_Controller.v | 12-13-2023 | 15:48:36 | | 3871 | a9d1a84
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\lib\MemoryBankLib.vhd | 12-13-2023 | 15:48:36 | | 14390 | a9b6f1bc
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdl
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdl\top_main.vhd | 03-26-2025 | 17:26:18 | | 56685 | a98f998e
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlCpy
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlCpy\top_main.sdc | 03-26-2025 | 09:10:34 | | 6241 | 1f77e717
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlCpy\MemPLL
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlCpy\MemPLL\MemClkPLL.qip | 08-29-2025 | 12:01:38 | | 55005 | a01ea499
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlCpy\MemPLL\MemClkPLL.vhd | 08-29-2025 | 12:02:02 | | 17805 | 89338b21
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlCpy\MemPLL\MemClkPLL
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlCpy\MemPLL\MemClkPLL\MemClkPLL_0002.qip | 08-29-2025 | 12:01:38 | | 315 | 25d3c077
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlCpy\MemPLL\MemClkPLL\MemClkPLL_0002.v | 08-29-2025 | 12:01:38 | | 2166 | f69ae7d6
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlRpl
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlRpl\option_fit | 02-26-2024 | 19:06:36 | | 59 | 14aa4d01
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlRpl\option_fit2 | 02-26-2024 | 19:06:48 | | 58 | 1a35f17c
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlRpl\option_map | 02-26-2024 | 17:49:10 | | 60 | 7e7c22c3
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlRpl\prog.bat | 03-26-2025 | 17:26:56 | | 283 | dba70372
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlRpl\top_main.cdf | 02-26-2024 | 19:54:28 | | 380 | cdacdc51
+File Copy: C:\Novakod_Studio\bsp\TerasicDE1SoC\\config\0\vhdlRpl\top_main.qsf | 03-26-2025 | 17:27:58 | | 33953 | 843ef2e3
+Made Dir: C:\Novakod_Studio\bsp\TerasicDE1SoC\\hdl
+RegDB Key: SOFTWARE\Novakod\Ride\bsp
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\TerasicDE1SoC
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\TerasicDE1SoC
+RegDB Val: DE1SoC
+RegDB Name: Board Name
+RegDB Root: 2
+RegDB Old: DE1SoC
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\TerasicDE1SoC
+RegDB Val: Terasic
+RegDB Name: Company
+RegDB Root: 2
+RegDB Old: Terasic
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\TerasicDE1SoC
+RegDB Val: Cyclone V - System on Chip Board
+RegDB Name: Description
+RegDB Root: 2
+RegDB Old: Cyclone V - System on Chip Board
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\TerasicDE1SoC
+RegDB Val: TerasicDE1SoC.dll
+RegDB Name: Dll Name
+RegDB Root: 2
+RegDB Old: TerasicDE1SoC.dll
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\TerasicDE1SoC
+RegDB Val: 0059
+RegDB Name: id
+RegDB Type: 4
+RegDB Root: 2
+RegDB Old: 0059
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\TerasicDE1SoC
+RegDB Val: Altera
+RegDB Name: Tool Chain
+RegDB Root: 2
+RegDB Old: Altera
+File Tree: C:\NOBA70~1\bsp\TERASI~1\bsp\TerasicDE1SoC\*.*
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Terasic DE1 SoC BSP
+RegDB Val: ICI Techno
+RegDB Name: Publisher
+RegDB Root: 2
