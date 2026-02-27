@@ -583,18 +583,18 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to P1Cbus[3]
 #============================================================
 # FILES
 #============================================================
-set_global_assignment -name VHDL_FILE "%work_vhdl_path%/MemPLL/MemClkPLL.vhd
-set_global_assignment -name QIP_FILE  "%work_vhdl_path%/MemPLL/MemClkPLL.qip
-set_global_assignment -name SDC_FILE  "%work_vhdl_path%/top_main.SDC
-set_global_assignment -name VHDL_FILE "%std_lib_path%/packageConv.vhd"
-set_global_assignment -name VHDL_FILE "%std_lib_path%/RodinStd.vhd" 
-set_global_assignment -name VHDL_FILE "%std_lib_path%/ctype.vhd" 
-set_global_assignment -name VHDL_FILE "%config_lib_path%/BoardLib.vhd"  
-set_global_assignment -name VHDL_FILE "%config_lib_path%/MemoryBankLib.vhd"  
-set_global_assignment -name VHDL_FILE "%config_lib_path%/BoardPLL.vhd" 
-set_global_assignment -name VERILOG_FILE "%config_lib_path%/I2C_AV_Config.v" 
-set_global_assignment -name VERILOG_FILE "%config_lib_path%/I2C_Controller.v"
-set_global_assignment -name VERILOG_FILE "%config_lib_path%/AudioPLL_0002.v"
-set_global_assignment -name VHDL_FILE "%work_vhdl_path%/main.vhd"
-set_global_assignment -name VHDL_FILE "%work_vhdl_path%/top_main.vhd"
+set_global_assignment -name VHDL_FILE "./MemPLL/MemClkPLL.vhd
+set_global_assignment -name QIP_FILE  "./MemPLL/MemClkPLL.qip
+set_global_assignment -name SDC_FILE  "./top_main.SDC
+set_global_assignment -name VHDL_FILE "./lib/packageConv.vhd"
+set_global_assignment -name VHDL_FILE "./lib/RodinStd.vhd" 
+set_global_assignment -name VHDL_FILE "./lib/ctype.vhd" 
+set_global_assignment -name VHDL_FILE "./lib/BoardLib.vhd"  
+set_global_assignment -name VHDL_FILE "./lib/MemoryBankLib.vhd"  
+set_global_assignment -name VHDL_FILE "./lib/BoardPLL.vhd" 
+set_global_assignment -name VERILOG_FILE "./lib/I2C_AV_Config.v" 
+set_global_assignment -name VERILOG_FILE "./lib/I2C_Controller.v"
+set_global_assignment -name VERILOG_FILE "./lib/AudioPLL_0002.v"
+set_global_assignment -name VHDL_FILE "./main.vhd"
+set_global_assignment -name VHDL_FILE "./top_main.vhd"
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

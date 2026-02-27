@@ -9,19 +9,19 @@
         "Id": "HelloWorld",
         "SimulationMode": "Console",
         "N": "50000000",
-        "Libraries": []
+        "Libraries": [ "Learn_psCLib.psC" ]
       },
       {
         "Id": "Loopback",
         "SimulationMode": "Console",
         "N": "50000000",
-        "Library": []
+        "Library": [ "Learn_psCLib.psC" ]
       },
       {
         "Id": "Counter",
         "SimulationMode": "Console",
         "N": "50000000",
-        "Library": []
+        "Library": [ "Learn_psCLib.psC" ]
       }
     ]
   },
@@ -35,7 +35,7 @@
         "Id": "CounterBench",
         "SimulationMode": "Wave",
         "N": "2000",
-        "Libraries": []
+        "Libraries": [ "TestBenchLib.psC" ]
       }
     ]
   },
@@ -49,7 +49,7 @@
         "Id": "Counter",
         "SimulationMode": "Wave",
         "N": "2000",
-        "Libraries": []
+        "Libraries": [ "DE1SoCLib.psC" ]
       }
     ]
   },
@@ -63,19 +63,19 @@
         "Id": "Console",
         "SimulationMode": "Console",
         "N": "50000000",
-        "Libraries": []
+        "Libraries": [ "SandboxLib.psC" ]
       },
       {
         "Id": "Wave",
         "SimulationMode": "Wave",
         "N": "2000",
-        "Libraries": []
+        "Libraries": [ "SandboxLib.psC" ]
       },
       {
         "Id": "DE1SoC",
         "SimulationMode": "DE1SoC",
         "N": "50000000",
-        "Libraries": []
+        "Libraries": [ "SandboxLib.psC" ]
       }
     ]
   }

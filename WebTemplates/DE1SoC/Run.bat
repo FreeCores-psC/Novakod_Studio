@@ -12,12 +12,11 @@ echo -------------------------------------
 echo Execution in simulation:    %%~nxf
 echo -------------------------------------
 cd %currentdir%   
-start execute
+start execute SessionID 50000000 0 9001 0
 
-start StartServer.bat
+start C:\Novakod_Studio\WebBsp\DE1SoC\StartServer.bat
 
-start StartClient.bat
+start C:\Novakod_Studio\WebBsp\DE1SoC\StartClient.bat
   
 exit
                          
-

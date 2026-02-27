@@ -1,21 +1,75 @@
-***  Installation Started 04/15/2025 17:25  ***
+***  Installation Started 12/17/2023 9:48  ***
 Title: Novakod Virtual Board
-Source: C:\Users\Luc\AppData\Local\Temp\GLBC563.tmp | 04-15-2025 | 17:25:34 | 71680
+Source: C:\Users\Luc\AppData\Local\Temp\GLBC984.tmp | 12-17-2023 | 09:48:26 | 71680
 Made Dir: C:\Novakod_Studio\bsp\virtualboard
-File Copy: C:\Novakod_Studio\bsp\virtualboard\UNWISE.EXE | 07-26-2002 | 18:02:06 | | 153088 | 5be5019b
+File Copy: C:\Novakod_Studio\bsp\virtualboard\UNWISE.EXE | 07-26-2002 | 17:02:06 | | 153088 | 5be5019b
 RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Virtual Board
 RegDB Val: Novakod Virtual Board
 RegDB Name: DisplayName
 RegDB Root: 2
 RegDB Old: Novakod Virtual Board
 RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Virtual Board
-RegDB Val: C:\NOVAKO~3\bsp\VIRTUA~2\UNWISE.EXE C:\NOVAKO~3\bsp\VIRTUA~2\INSTALL.LOG
+RegDB Val: C:\NOVAKO~1\bsp\VIRTUA~2\UNWISE.EXE C:\NOVAKO~1\bsp\VIRTUA~2\INSTALL.LOG
 RegDB Name: UninstallString
 RegDB Root: 2
-RegDB Old: C:\NOVAKO~3\bsp\VIRTUA~2\UNWISE.EXE C:\NOVAKO~3\bsp\VIRTUA~2\INSTALL.LOG
+RegDB Old: C:\NOVAKO~1\bsp\VIRTUA~2\UNWISE.EXE C:\NOVAKO~1\bsp\VIRTUA~2\INSTALL.LOG
 Made Dir: C:\Novakod_Studio\bsp\virtualboard\lib
-File Copy: C:\Novakod_Studio\bsp\virtualboard\lib\virtualBoard.dll | 03-26-2025 | 14:48:42 | | 7780864 | 365a8507
-File Copy: C:\Novakod_Studio\bsp\virtualboard\lib\virtualBoard.pdb | 03-26-2025 | 14:48:42 | | 35811328 | 1c5b0dca
+File Copy: C:\Novakod_Studio\bsp\virtualboard\lib\virtualboard.dll | 12-17-2023 | 09:46:32 | | 822784 | b601b0a6
+File Copy: C:\Novakod_Studio\bsp\virtualboard\lib\virtualboard.pdb | 12-17-2023 | 09:46:32 | | 11833344 | 8c2f48cc
+RegDB Key: SOFTWARE\Novakod\Ride\bsp
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\virtualboard
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\virtualboard
+RegDB Val: Virtual Board
+RegDB Name: Board Name
+RegDB Root: 2
+RegDB Old: Virtual Board
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\virtualboard
+RegDB Val: Novakod
+RegDB Name: Company
+RegDB Root: 2
+RegDB Old: Novakod
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\virtualboard
+RegDB Val: Virtual board card
+RegDB Name: Description
+RegDB Root: 2
+RegDB Old: Virtual board card
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\virtualboard
+RegDB Val: virtualboard.dll
+RegDB Name: Dll Name
+RegDB Root: 2
+RegDB Old: virtualboard.dll
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\virtualboard
+RegDB Val: 0057
+RegDB Name: id
+RegDB Type: 4
+RegDB Root: 2
+RegDB Old: 0057
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\virtualboard
+RegDB Val: apiSimulated.dll
+RegDB Name: Api Dll Name
+RegDB Root: 2
+RegDB Old: apiSimulated.dll
+RegDB Root: 1
+***  Installation Started 12/17/2023 10:05  ***
+Title: Novakod Virtual Board
+Source: C:\Users\Luc\AppData\Local\Temp\GLB5D20.tmp | 12-17-2023 | 10:05:28 | 71680
+File Overwrite: C:\Novakod_Studio\bsp\virtualboard\UNWISE.EXE | 07-26-2002 | 17:02:06 | | 153088 | 5be5019b
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Virtual Board
+RegDB Val: Novakod Virtual Board
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Old: Novakod Virtual Board
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Virtual Board
+RegDB Val: C:\NOVAKO~1\bsp\VIRTUA~2\UNWISE.EXE C:\NOVAKO~1\bsp\VIRTUA~2\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+RegDB Old: C:\NOVAKO~1\bsp\VIRTUA~2\UNWISE.EXE C:\NOVAKO~1\bsp\VIRTUA~2\INSTALL.LOG
+File Overwrite: C:\Novakod_Studio\bsp\virtualboard\lib\virtualboard.dll | 12-17-2023 | 09:46:32 | | 822784 | b601b0a6
+File Overwrite: C:\Novakod_Studio\bsp\virtualboard\lib\virtualboard.pdb | 12-17-2023 | 09:46:32 | | 11833344 | 8c2f48cc
 RegDB Key: SOFTWARE\Novakod\Ride\bsp
 RegDB Val: 
 RegDB Root: 2

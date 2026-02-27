@@ -5,8 +5,8 @@ set prjDir=%~dp0
 rem First clear previous data
 del !!gen!!.sym
 
-set compPath=C:\Novakod_Studio\bin\
-set compiler=%compPath%pscc.exe
+set binPath=C:\Novakod_Studio\bin\
+set compiler=%binPath%pscc.exe
 
 echo ...Calling compiler: %compiler% %prjDir%
 

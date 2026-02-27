@@ -14,7 +14,7 @@ echo -------------------------------------
 cd %currentdir%   
 start execute SessionID 50000000 9001 0 0
 
-start index.html
+start C:\Novakod_Studio\WebBsp\Console\index.html
 
 exit  
 

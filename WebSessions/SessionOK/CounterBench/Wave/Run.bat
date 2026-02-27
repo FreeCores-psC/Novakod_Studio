@@ -51,9 +51,6 @@ start /WAIT execute %SessionID% 2000 0 0 0
 
 echo -------------------------------------
 echo Displaying waveform:    %%~nxf
-echo Parameter is SessionID
 echo -------------------------------------
-cd %currentdir%      
-call DisplayWaveform.bat %SessionID%
 
 exit                  
