@@ -1,0 +1,1 @@
+Also char functions included in comment

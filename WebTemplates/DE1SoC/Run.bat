@@ -14,9 +14,9 @@ echo -------------------------------------
 cd %currentdir%   
 start execute SessionID 50000000 0 9001 0
 
-start C:\Novakod_Studio\WebBsp\DE1SoC\StartServer.bat
+start C:\Novakod_Studio\WebViewer\DE1SoC\StartServer.bat
 
-start C:\Novakod_Studio\WebBsp\DE1SoC\StartClient.bat
+start C:\Novakod_Studio\WebViewer\DE1SoC\StartClient.bat
   
 exit
                          

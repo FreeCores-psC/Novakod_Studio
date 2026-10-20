@@ -1,7 +1,3 @@
-
-// ===========================================================
-//{!CIRCUIT_PATH=MainLib }
-// ===========================================================
 library MainLib
 {
     enum CounterCmd_t { cReset, cUp, cDown, cLoad};
@@ -36,26 +32,10 @@ library MainLib
           }
       }
     };
-};
 
-
-
-// ===========================================================
-//{!CIRCUIT_PATH=main }
-// ===========================================================
-component main(out ubyte oValue,
-				out uint:2 iCmd,
-				out ubyte iLoadVal)
-{
-    
-    
-    // ===========================================================
-    //{!CIRCUIT_PATH=main.TestBench }
-    // ===========================================================
-    component TestBench 
-        ( out active  CounterCmd_t oCmd,
-          out passive ubyte oLoadVal
-        )
+   component TestBench(
+       out active  CounterCmd_t oCmd,
+       out passive ubyte oLoadVal)
     { 
         // Define each test signals
         const identifier TestCmd[] = 
@@ -74,7 +54,7 @@ component main(out ubyte oValue,
               0, 0, 0, 0
             }; 
     
-            int i;
+            int i;      
         function Wait10()
         {
             i = 0;
@@ -84,38 +64,28 @@ component main(out ubyte oValue,
     
         loop()
         {
+            // Repead a block of instructions
             foreach C in <TestCmd> L in <LoadVal>
-                call Wait10();
+                call Wait10();  
                 oLoadVal = ubyte(L); 
                 oCmd    := CounterCmd_t(C);
             end
-    
-    // Or else use { } to execute both instruction 
-    //           simultaneously in the same  step.
-    /* 
-            foreach C in <TestCmd> L in <LoadVal>
-                call Wait10();
-                {
-                    oLoadVal = ubyte(L); 
-                    oCmd    := CounterCmd_t(C);
-                }
-            end
-    */
             while(true){}; // Just stop
-    }
-    
-    
-    
+        }
     };
+};
 
+component main(
+    out ubyte oValue,
+    out uint:2 iCmd,
+    out ubyte iLoadVal)
 
-
-  // ===========================================================
-  //{!CIRCUIT_PATH=main }
-  // ===========================================================
+{
+    // Processes
     main::TestBench  PTestBench;
     MainLib::CCounter  PCounter;
 
+    // Signals
     CounterCmd_t signal0 = {PTestBench.oCmd, PCounter.iCmd, iCmd};
     ubyte signal1 = {PCounter.oValue, oValue};
     ubyte signal2 = {PTestBench.oLoadVal, PCounter.iLoadVal, iLoadVal};

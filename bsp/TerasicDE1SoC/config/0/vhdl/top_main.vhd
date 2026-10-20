@@ -10,7 +10,7 @@
 entity  %top_circuit_name%   IS
 port
 (
-    clk       : in std_logic;  
+    gclk      : in std_logic;
     
     Keys      : in  std_logic_vector(3 downto 0);
     Leds      : out std_logic_vector(9 downto 0);
@@ -54,7 +54,6 @@ port
 
 );
 end   %top_circuit_name%;
-      
       
 architecture  %top_circuit_name%_arch  OF  %top_circuit_name%  IS
 
@@ -584,21 +583,11 @@ architecture  %top_circuit_name%_arch  OF  %top_circuit_name%  IS
     signal s_IRDA_TXD  : std_logic_vector( 0 downto 0 );             
     signal s_IRDA_TXD0 : std_logic_vector( 0 downto 0 );             
 
-    SIGNAL rst :    std_logic := '0';
- 	SIGNAL memclk : std_logic;
-	SIGNAL locked : std_logic;
+    signal rst :    std_logic := '0';
+ 	signal clk :    std_logic;
+ 	signal memclk : std_logic;
 
-    COMPONENT MemClkPLL
-	 PORT 
-    (
-	    outclk_0 : OUT STD_LOGIC;
-	    refclk :   IN  STD_LOGIC;
-	    rst :      IN  STD_LOGIC
-	 );
-    END COMPONENT;
-
-
--- main signals 
+-- main signals
     
 %user_signals%
     
@@ -609,12 +598,14 @@ begin
 %join_code%   
     
 %assign_sr_out_ev%
+
     PLL : MemClkPLL
-    PORT MAP
+    port map
     (
-        outclk_0 => memclk,
-        refclk   => clk,
-        rst      => rst
+        refclk   => gclk,
+        rst      => rst,
+        outclk_0 => clk,
+        outclk_1 => memclk
     );
 
     s_port_Keys_ev_buffer_0 : InFall
@@ -1398,7 +1389,7 @@ begin
     AudioPLLinst : AudioPLL 
     PORT MAP
     (
-  		refclk   => clk,
+  		refclk   => gclk,
      	rst      => s_start_ev,     --  Reset on start event
     	outclk_0 => AudioMainClock  --  Clock output
     );

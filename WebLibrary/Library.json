@@ -1,0 +1,51 @@
+[
+  {
+    "id": "string",
+    "description": "C-like char and string",
+    "dependencies": "",
+    "location": "",
+    "code": ""
+  },
+  {
+    "id": "stdlib",
+    "description": "C-like stdlib",
+    "dependencies": "",
+    "location": "",
+    "code": ""
+  },
+  {
+    "id": "stdio",
+    "description": "C-like stdio",
+    "dependencies": "",
+    "location": "",
+    "code": ""
+  },
+  {
+    "id": "terminalboxes",
+    "description": "Draw boxes and lines on terminal",
+    "dependencies": "",
+    "location": "",
+    "code": ""
+  },
+  {
+    "id": "serial",
+    "description": "Serial port interface",
+    "dependencies": "",
+    "location": "",
+    "code": ""
+  },
+  {
+    "id": "mousekeyboard",
+    "description": "Mouse and keyboard interface",
+    "dependencies": "",
+    "location": "",
+    "code": ""
+  },
+  {
+    "id": "canvas",
+    "description": "Graphic functions, based on html5 canvas",
+    "dependencies": "",
+    "location": "",
+    "code": ""
+  }
+]

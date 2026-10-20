@@ -1,0 +1,457 @@
+***  Installation Started 12/14/2023 17:47  ***
+Title: Novakod Bsp Gencore
+Source: C:\Users\Luc\AppData\Local\Temp\GLB2CE4.tmp | 12-14-2023 | 17:47:18 | 71680
+Made Dir: C:\Novakod_Studio\bsp\gencore
+File Copy: C:\Novakod_Studio\bsp\gencore\UNWISE.EXE | 07-26-2002 | 17:02:06 | | 153088 | 5be5019b
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: Novakod Core Generator
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Old: Novakod Core Generator
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+RegDB Old: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+Made Dir: C:\Novakod_Studio\bsp\gencore\lib
+File Copy: C:\Novakod_Studio\bsp\gencore\lib\gencore.dll | 12-14-2023 | 17:38:10 | | 646656 | bda066ba
+File Copy: C:\Novakod_Studio\bsp\gencore\lib\gencore.pdb | 12-14-2023 | 17:38:10 | | 9908224 | 370f7231
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qpf | 02-10-2021 | 09:53:04 | | 1385 | 4eede9c2
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qsf | 10-08-2023 | 16:31:40 | | 3342 | 7bb50e04
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\main.sdc | 02-10-2021 | 09:53:04 | | 4061 | c80c0c38
+File Overwrite: C:\Novakod_Studio\CoreGenerator\UserManual.pdf | 10-06-2021 | 12:13:08 | | 314085 | d0d747ee
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\main.rpj | 03-04-2021 | 20:58:26 | | 3877 | 9ac9a8bc
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.psc | 12-02-2020 | 14:38:38 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.vmc | 12-02-2020 | 14:38:42 | | 3131 | 6ac33c17
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vmc | 12-01-2020 | 20:11:14 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vms | 12-01-2020 | 20:11:14 | | 9852 | 586f42de
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Core.env | 12-01-2020 | 20:11:14 | | 851 | 7ec180b2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 698 | 8bda8d6b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | 6aca8241
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.psc | 12-02-2020 | 14:40:44 | | 2553 | 17eef460
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.vmc | 12-02-2020 | 14:40:44 | | 12423 | 9ad1bba8
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3642 | 27aeacf7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2954 | b830f73f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | bf01bb3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.psc | 12-02-2020 | 14:39:40 | | 2666 | 6fee9f6c
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.vmc | 12-02-2020 | 14:39:42 | | 12549 | 383a492
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3654 | b54f8533
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2918 | 936dd8a7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\main.rpj | 12-01-2020 | 20:31:34 | | 5221 | 20f805c9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.psc | 12-01-2020 | 20:11:18 | | 576 | b7a87744
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.vmc | 12-02-2020 | 14:41:54 | | 2476 | 493509f2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vmc | 12-01-2020 | 20:11:18 | | 5758 | 91e5b91f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vms | 12-01-2020 | 20:11:18 | | 23611 | 627c5e3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.psc | 12-02-2020 | 14:41:44 | | 1188 | d5670e1b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.vmc | 12-02-2020 | 14:41:44 | | 3008 | a1ef53e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.psc | 12-01-2020 | 20:11:18 | | 833 | 290bdd3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.vmc | 12-02-2020 | 14:42:04 | | 3550 | db4630ce
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Core.env | 12-01-2020 | 20:11:18 | | 1738 | 15b4469b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 1606 | fbccd9d0
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\main.rpj | 12-01-2020 | 20:11:18 | | 2885 | 7ce3d93e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.psc | 12-01-2020 | 20:11:18 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.vmc | 12-01-2020 | 20:11:18 | | 3140 | f9ffe346
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vmc | 12-01-2020 | 20:11:18 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vms | 12-02-2020 | 14:42:46 | | 9852 | 8e6d397e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 698 | 8bda8d6b
+RegDB Key: SOFTWARE\Novakod\Ride\bsp
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Core Generator
+RegDB Name: Board Name
+RegDB Root: 2
+RegDB Old: Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Novakod
+RegDB Name: Company
+RegDB Root: 2
+RegDB Old: Novakod
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Vhdl Core Generator
+RegDB Name: Description
+RegDB Root: 2
+RegDB Old: Vhdl Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: gencore.dll
+RegDB Name: Dll Name
+RegDB Root: 2
+RegDB Old: gencore.dll
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 0054
+RegDB Name: id
+RegDB Type: 4
+RegDB Root: 2
+RegDB Old: 0054
+RegDB Root: 1
+***  Installation Started 12/17/2023 9:36  ***
+Title: Novakod Bsp Gencore
+Source: C:\Users\Luc\AppData\Local\Temp\GLBD1F6.tmp | 12-17-2023 | 09:36:28 | 71680
+File Overwrite: C:\Novakod_Studio\bsp\gencore\UNWISE.EXE | 07-26-2002 | 17:02:06 | | 153088 | 5be5019b
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: Novakod Core Generator
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Old: Novakod Core Generator
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+RegDB Old: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+File Overwrite: C:\Novakod_Studio\bsp\gencore\lib\gencore.dll | 12-17-2023 | 09:35:36 | | 646144 | a8dbc9b4
+File Overwrite: C:\Novakod_Studio\bsp\gencore\lib\gencore.pdb | 12-17-2023 | 09:35:36 | | 9908224 | a824626c
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qpf | 02-10-2021 | 09:53:04 | | 1385 | 4eede9c2
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qsf | 10-08-2023 | 16:31:40 | | 3342 | 7bb50e04
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\main.sdc | 02-10-2021 | 09:53:04 | | 4061 | c80c0c38
+File Overwrite: C:\Novakod_Studio\CoreGenerator\UserManual.pdf | 10-06-2021 | 12:13:08 | | 314085 | d0d747ee
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\main.rpj | 03-04-2021 | 20:58:26 | | 3877 | 9ac9a8bc
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.psc | 12-02-2020 | 14:38:38 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.vmc | 12-02-2020 | 14:38:42 | | 3131 | 6ac33c17
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vmc | 12-01-2020 | 20:11:14 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vms | 12-01-2020 | 20:11:14 | | 9852 | 586f42de
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Core.env | 12-01-2020 | 20:11:14 | | 851 | 7ec180b2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 698 | 8bda8d6b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | 6aca8241
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.psc | 12-02-2020 | 14:40:44 | | 2553 | 17eef460
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.vmc | 12-02-2020 | 14:40:44 | | 12423 | 9ad1bba8
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3642 | 27aeacf7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2954 | b830f73f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | bf01bb3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.psc | 12-02-2020 | 14:39:40 | | 2666 | 6fee9f6c
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.vmc | 12-02-2020 | 14:39:42 | | 12549 | 383a492
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3654 | b54f8533
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2918 | 936dd8a7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\main.rpj | 12-01-2020 | 20:31:34 | | 5221 | 20f805c9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.psc | 12-01-2020 | 20:11:18 | | 576 | b7a87744
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.vmc | 12-02-2020 | 14:41:54 | | 2476 | 493509f2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vmc | 12-01-2020 | 20:11:18 | | 5758 | 91e5b91f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vms | 12-01-2020 | 20:11:18 | | 23611 | 627c5e3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.psc | 12-02-2020 | 14:41:44 | | 1188 | d5670e1b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.vmc | 12-02-2020 | 14:41:44 | | 3008 | a1ef53e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.psc | 12-01-2020 | 20:11:18 | | 833 | 290bdd3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.vmc | 12-02-2020 | 14:42:04 | | 3550 | db4630ce
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Core.env | 12-01-2020 | 20:11:18 | | 1738 | 15b4469b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 1606 | fbccd9d0
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\main.rpj | 12-01-2020 | 20:11:18 | | 2885 | 7ce3d93e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.psc | 12-01-2020 | 20:11:18 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.vmc | 12-01-2020 | 20:11:18 | | 3140 | f9ffe346
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vmc | 12-01-2020 | 20:11:18 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vms | 12-02-2020 | 14:42:46 | | 9852 | 8e6d397e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 698 | 8bda8d6b
+RegDB Key: SOFTWARE\Novakod\Ride\bsp
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Core Generator
+RegDB Name: Board Name
+RegDB Root: 2
+RegDB Old: Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Novakod
+RegDB Name: Company
+RegDB Root: 2
+RegDB Old: Novakod
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Vhdl Core Generator
+RegDB Name: Description
+RegDB Root: 2
+RegDB Old: Vhdl Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: gencore.dll
+RegDB Name: Dll Name
+RegDB Root: 2
+RegDB Old: gencore.dll
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 0054
+RegDB Name: id
+RegDB Type: 4
+RegDB Root: 2
+RegDB Old: 0054
+RegDB Root: 1
+***  Installation Started 12/17/2023 9:57  ***
+Title: Novakod Bsp Gencore
+Source: C:\Users\Luc\AppData\Local\Temp\GLBCA29.tmp | 12-17-2023 | 09:57:12 | 71680
+File Overwrite: C:\Novakod_Studio\bsp\gencore\UNWISE.EXE | 07-26-2002 | 17:02:06 | | 153088 | 5be5019b
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: Novakod Core Generator
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Old: Novakod Core Generator
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+RegDB Old: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+File Overwrite: C:\Novakod_Studio\bsp\gencore\lib\gencore.dll | 12-17-2023 | 09:35:36 | | 646144 | a8dbc9b4
+File Overwrite: C:\Novakod_Studio\bsp\gencore\lib\gencore.pdb | 12-17-2023 | 09:35:36 | | 9908224 | a824626c
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qpf | 02-10-2021 | 09:53:04 | | 1385 | 4eede9c2
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qsf | 10-08-2023 | 16:31:40 | | 3342 | 7bb50e04
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\main.sdc | 02-10-2021 | 09:53:04 | | 4061 | c80c0c38
+File Overwrite: C:\Novakod_Studio\CoreGenerator\UserManual.pdf | 10-06-2021 | 12:13:08 | | 314085 | d0d747ee
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\main.rpj | 03-04-2021 | 20:58:26 | | 3877 | 9ac9a8bc
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.psc | 12-02-2020 | 14:38:38 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.vmc | 12-02-2020 | 14:38:42 | | 3131 | 6ac33c17
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vmc | 12-01-2020 | 20:11:14 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vms | 12-01-2020 | 20:11:14 | | 9852 | 586f42de
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Core.env | 12-01-2020 | 20:11:14 | | 851 | 7ec180b2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 698 | 8bda8d6b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | 6aca8241
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.psc | 12-02-2020 | 14:40:44 | | 2553 | 17eef460
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.vmc | 12-02-2020 | 14:40:44 | | 12423 | 9ad1bba8
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3642 | 27aeacf7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2954 | b830f73f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | bf01bb3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.psc | 12-02-2020 | 14:39:40 | | 2666 | 6fee9f6c
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.vmc | 12-02-2020 | 14:39:42 | | 12549 | 383a492
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3654 | b54f8533
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2918 | 936dd8a7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\main.rpj | 12-01-2020 | 20:31:34 | | 5221 | 20f805c9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.psc | 12-01-2020 | 20:11:18 | | 576 | b7a87744
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.vmc | 12-02-2020 | 14:41:54 | | 2476 | 493509f2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vmc | 12-01-2020 | 20:11:18 | | 5758 | 91e5b91f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vms | 12-01-2020 | 20:11:18 | | 23611 | 627c5e3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.psc | 12-02-2020 | 14:41:44 | | 1188 | d5670e1b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.vmc | 12-02-2020 | 14:41:44 | | 3008 | a1ef53e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.psc | 12-01-2020 | 20:11:18 | | 833 | 290bdd3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.vmc | 12-02-2020 | 14:42:04 | | 3550 | db4630ce
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Core.env | 12-01-2020 | 20:11:18 | | 1738 | 15b4469b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 1606 | fbccd9d0
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\main.rpj | 12-01-2020 | 20:11:18 | | 2885 | 7ce3d93e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.psc | 12-01-2020 | 20:11:18 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.vmc | 12-01-2020 | 20:11:18 | | 3140 | f9ffe346
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vmc | 12-01-2020 | 20:11:18 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vms | 12-02-2020 | 14:42:46 | | 9852 | 8e6d397e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 698 | 8bda8d6b
+RegDB Key: SOFTWARE\Novakod\Ride\bsp
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Core Generator
+RegDB Name: Board Name
+RegDB Root: 2
+RegDB Old: Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Novakod
+RegDB Name: Company
+RegDB Root: 2
+RegDB Old: Novakod
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Vhdl Core Generator
+RegDB Name: Description
+RegDB Root: 2
+RegDB Old: Vhdl Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: gencore.dll
+RegDB Name: Dll Name
+RegDB Root: 2
+RegDB Old: gencore.dll
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 0054
+RegDB Name: id
+RegDB Type: 4
+RegDB Root: 2
+RegDB Old: 0054
+RegDB Root: 1
+***  Installation Started 12/17/2023 10:01  ***
+Title: Novakod Bsp Gencore
+Source: C:\Users\Luc\AppData\Local\Temp\GLBB239.tmp | 12-17-2023 | 10:01:28 | 71680
+File Overwrite: C:\Novakod_Studio\bsp\gencore\UNWISE.EXE | 07-26-2002 | 17:02:06 | | 153088 | 5be5019b
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: Novakod Core Generator
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Old: Novakod Core Generator
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+RegDB Old: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+File Overwrite: C:\Novakod_Studio\bsp\gencore\lib\gencore.dll | 12-17-2023 | 09:35:36 | | 646144 | a8dbc9b4
+File Overwrite: C:\Novakod_Studio\bsp\gencore\lib\gencore.pdb | 12-17-2023 | 09:35:36 | | 9908224 | a824626c
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qpf | 02-10-2021 | 09:53:04 | | 1385 | 4eede9c2
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qsf | 10-08-2023 | 16:31:40 | | 3342 | 7bb50e04
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\main.sdc | 02-10-2021 | 09:53:04 | | 4061 | c80c0c38
+File Overwrite: C:\Novakod_Studio\CoreGenerator\UserManual.pdf | 10-06-2021 | 12:13:08 | | 314085 | d0d747ee
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\main.rpj | 03-04-2021 | 20:58:26 | | 3877 | 9ac9a8bc
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.psc | 12-02-2020 | 14:38:38 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.vmc | 12-02-2020 | 14:38:42 | | 3131 | 6ac33c17
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vmc | 12-01-2020 | 20:11:14 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vms | 12-01-2020 | 20:11:14 | | 9852 | 586f42de
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Core.env | 12-01-2020 | 20:11:14 | | 851 | 7ec180b2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 698 | 8bda8d6b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | 6aca8241
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.psc | 12-02-2020 | 14:40:44 | | 2553 | 17eef460
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.vmc | 12-02-2020 | 14:40:44 | | 12423 | 9ad1bba8
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3642 | 27aeacf7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2954 | b830f73f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | bf01bb3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.psc | 12-02-2020 | 14:39:40 | | 2666 | 6fee9f6c
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.vmc | 12-02-2020 | 14:39:42 | | 12549 | 383a492
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3654 | b54f8533
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2918 | 936dd8a7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\main.rpj | 12-01-2020 | 20:31:34 | | 5221 | 20f805c9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.psc | 12-01-2020 | 20:11:18 | | 576 | b7a87744
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.vmc | 12-02-2020 | 14:41:54 | | 2476 | 493509f2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vmc | 12-01-2020 | 20:11:18 | | 5758 | 91e5b91f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vms | 12-01-2020 | 20:11:18 | | 23611 | 627c5e3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.psc | 12-02-2020 | 14:41:44 | | 1188 | d5670e1b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.vmc | 12-02-2020 | 14:41:44 | | 3008 | a1ef53e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.psc | 12-01-2020 | 20:11:18 | | 833 | 290bdd3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.vmc | 12-02-2020 | 14:42:04 | | 3550 | db4630ce
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Core.env | 12-01-2020 | 20:11:18 | | 1738 | 15b4469b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 1606 | fbccd9d0
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\main.rpj | 12-01-2020 | 20:11:18 | | 2885 | 7ce3d93e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.psc | 12-01-2020 | 20:11:18 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.vmc | 12-01-2020 | 20:11:18 | | 3140 | f9ffe346
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vmc | 12-01-2020 | 20:11:18 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vms | 12-02-2020 | 14:42:46 | | 9852 | 8e6d397e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 698 | 8bda8d6b
+RegDB Key: SOFTWARE\Novakod\Ride\bsp
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Core Generator
+RegDB Name: Board Name
+RegDB Root: 2
+RegDB Old: Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Novakod
+RegDB Name: Company
+RegDB Root: 2
+RegDB Old: Novakod
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Vhdl Core Generator
+RegDB Name: Description
+RegDB Root: 2
+RegDB Old: Vhdl Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: gencore.dll
+RegDB Name: Dll Name
+RegDB Root: 2
+RegDB Old: gencore.dll
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 0054
+RegDB Name: id
+RegDB Type: 4
+RegDB Root: 2
+RegDB Old: 0054
+RegDB Root: 1
+***  Installation Started 12/17/2023 10:02  ***
+Title: Novakod Bsp Gencore
+Source: C:\Users\Luc\AppData\Local\Temp\GLBC6A7.tmp | 12-17-2023 | 10:02:38 | 71680
+File Overwrite: C:\Novakod_Studio\bsp\gencore\UNWISE.EXE | 07-26-2002 | 17:02:06 | | 153088 | 5be5019b
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: Novakod Core Generator
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Old: Novakod Core Generator
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\Novakod Core Generator
+RegDB Val: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+RegDB Old: C:\NOVAKO~1\bsp\gencore\UNWISE.EXE C:\NOVAKO~1\bsp\gencore\INSTALL.LOG
+File Overwrite: C:\Novakod_Studio\bsp\gencore\lib\gencore.dll | 12-17-2023 | 09:35:36 | | 646144 | a8dbc9b4
+File Overwrite: C:\Novakod_Studio\bsp\gencore\lib\gencore.pdb | 12-17-2023 | 09:35:36 | | 9908224 | a824626c
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qpf | 02-10-2021 | 09:53:04 | | 1385 | 4eede9c2
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\Main.qsf | 10-08-2023 | 16:31:40 | | 3342 | 7bb50e04
+File Overwrite: C:\Novakod_Studio\use\CoreGen\Intel\\main.sdc | 02-10-2021 | 09:53:04 | | 4061 | c80c0c38
+File Overwrite: C:\Novakod_Studio\CoreGenerator\UserManual.pdf | 10-06-2021 | 12:13:08 | | 314085 | d0d747ee
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\main.rpj | 03-04-2021 | 20:58:26 | | 3877 | 9ac9a8bc
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.psc | 12-02-2020 | 14:38:38 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\CCounter.vmc | 12-02-2020 | 14:38:42 | | 3131 | 6ac33c17
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vmc | 12-01-2020 | 20:11:14 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\src\main.vms | 12-01-2020 | 20:11:14 | | 9852 | 586f42de
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Core.env | 12-01-2020 | 20:11:14 | | 851 | 7ec180b2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\1_Counter\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 698 | 8bda8d6b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | 6aca8241
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.psc | 12-02-2020 | 14:40:44 | | 2553 | 17eef460
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\main.vmc | 12-02-2020 | 14:40:44 | | 12423 | 9ad1bba8
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3642 | 27aeacf7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\2_BaseTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2954 | b830f73f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\main.rpj | 12-01-2020 | 20:11:14 | | 3877 | bf01bb3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.psc | 12-02-2020 | 14:39:40 | | 2666 | 6fee9f6c
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\main.vmc | 12-02-2020 | 14:39:42 | | 12549 | 383a492
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.psc | 12-01-2020 | 20:11:14 | | 1008 | 55d5b34e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\src\TypeTest.vmc | 12-01-2020 | 20:11:14 | | 8445 | 1173e32b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Core.env | 12-01-2020 | 20:11:14 | | 3654 | b54f8533
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\3_UserDefinedTypes\targets\Simulation.env | 12-01-2020 | 20:11:14 | | 2918 | 936dd8a7
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\main.rpj | 12-01-2020 | 20:31:34 | | 5221 | 20f805c9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.psc | 12-01-2020 | 20:11:18 | | 576 | b7a87744
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Compute.vmc | 12-02-2020 | 14:41:54 | | 2476 | 493509f2
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vmc | 12-01-2020 | 20:11:18 | | 5758 | 91e5b91f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\main.vms | 12-01-2020 | 20:11:18 | | 23611 | 627c5e3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.psc | 12-02-2020 | 14:41:44 | | 1188 | d5670e1b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Reader.vmc | 12-02-2020 | 14:41:44 | | 3008 | a1ef53e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.psc | 12-01-2020 | 20:11:18 | | 833 | 290bdd3f
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\src\Writer.vmc | 12-02-2020 | 14:42:04 | | 3550 | db4630ce
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Core.env | 12-01-2020 | 20:11:18 | | 1738 | 15b4469b
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\4_Memory\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 1606 | fbccd9d0
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\main.rpj | 12-01-2020 | 20:11:18 | | 2885 | 7ce3d93e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.psc | 12-01-2020 | 20:11:18 | | 338 | 1b91d4e4
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\CCounter.vmc | 12-01-2020 | 20:11:18 | | 3140 | f9ffe346
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vmc | 12-01-2020 | 20:11:18 | | 3444 | 7cea93f9
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\src\main.vms | 12-02-2020 | 14:42:46 | | 9852 | 8e6d397e
+File Overwrite: C:\Novakod_Studio\CoreGenerator\\5_Integration\targets\Simulation.env | 12-01-2020 | 20:11:18 | | 698 | 8bda8d6b
+RegDB Key: SOFTWARE\Novakod\Ride\bsp
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 
+RegDB Root: 2
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Core Generator
+RegDB Name: Board Name
+RegDB Root: 2
+RegDB Old: Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Novakod
+RegDB Name: Company
+RegDB Root: 2
+RegDB Old: Novakod
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: Vhdl Core Generator
+RegDB Name: Description
+RegDB Root: 2
+RegDB Old: Vhdl Core Generator
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: gencore.dll
+RegDB Name: Dll Name
+RegDB Root: 2
+RegDB Old: gencore.dll
+RegDB Key: SOFTWARE\Novakod\Ride\bsp\gencore
+RegDB Val: 0054
+RegDB Name: id
+RegDB Type: 4
+RegDB Root: 2
+RegDB Old: 0054
+RegDB Root: 1

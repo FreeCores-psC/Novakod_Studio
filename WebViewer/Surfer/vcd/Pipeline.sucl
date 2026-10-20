@@ -1,0 +1,32 @@
+# Add modules/scopes to the view
+module_add top;
+
+# Not working: shows after the signals
+#divider_add "INPUTS";
+
+show iD;
+show iD_ev;
+
+# Not working: shows after the signals
+#divider_add "OUTPUTS";
+
+show oD0;
+show oD0_ev;
+show oD1;
+show oD1_ev;
+show oD2;
+show oD2_ev;
+show oD3;
+show oD3_ev;
+show oD4;
+show oD4_ev;
+show oD5;
+show oD5_ev;
+
+# Working
+toggle_menu;
+toggle_side_panel;
+
+# Zoom to a specific time range or fit all
+zoom full; 
+

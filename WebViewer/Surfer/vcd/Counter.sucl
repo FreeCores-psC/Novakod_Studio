@@ -1,0 +1,23 @@
+# Add modules/scopes to the view
+module_add top;
+
+# Not working: shows after the signals
+#divider_add "INPUTS";
+
+show iCmd;
+show iCmd_ev;
+show iLoadVal;
+
+# Not working: shows after the signals
+#divider_add "OUTPUTS";
+
+show oValue;
+show oValue_ev;
+
+# Working
+toggle_menu;
+toggle_side_panel;
+
+# Zoom to a specific time range or fit all
+zoom full; 
+

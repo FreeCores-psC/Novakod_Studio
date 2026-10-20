@@ -1,0 +1,186 @@
+{
+  "version": 1,
+  "board": {
+    "name": "DE1SoC Board Simulator",
+    "background": "BoardPicture.jpg",
+    "ui": {
+      "top": 0.3,
+      "left": 0.3
+    },
+    "vga": {
+      "top": 20,
+      "left": 180,
+      "width": 640,
+      "height": 480
+    }
+  },
+  "signals": {
+    "Leds": {
+      "dir": "out",
+      "bits": 10,
+      "wordIndex": 0
+    },
+    "Keys": {
+      "dir": "in",
+      "bits": 4,
+      "wordIndex": 0
+    },
+    "Switches": {
+      "dir": "in",
+      "bits": 10,
+      "wordIndex": 20
+    },
+
+    "Hex0": {
+      "dir": "out",
+      "bits": 8,
+      "wordIndex": 0,
+      "ctrlIndex": 0
+    },
+    "Hex1": {
+      "dir": "out",
+      "bits": 8,
+      "wordIndex": 0,
+      "ctrlIndex": 1
+    },
+    "Hex2": {
+      "dir": "out",
+      "bits": 8,
+      "wordIndex": 0,
+      "ctrlIndex": 2
+    },
+    "Hex3": {
+      "dir": "out",
+      "bits": 8,
+      "wordIndex": 0,
+      "ctrlIndex": 3
+    },
+    "Hex4": {
+      "dir": "out",
+      "bits": 8,
+      "wordIndex": 0,
+      "ctrlIndex": 4
+    },
+    "Hex5": {
+      "dir": "out",
+      "bits": 8,
+      "wordIndex": 0,
+      "ctrlIndex": 5
+    }
+  },
+  "panels": [
+    {
+      "type": "led",
+      "signal": "Leds",
+      "top": 640,
+      "left": 77,
+      "height": 40,
+      "width": 440,
+      "rotation": 0,
+      "upsidedown": "false",
+      "count": 10,
+      "ctrlHeight": 16,
+      "ctrlWidth": 16,
+      "ctrlSpacing": 44,
+      "labels": [
+        "LED9",
+        "LED8",
+        "LED7",
+        "LED6",
+        "LED5",
+        "LED4",
+        "LED3",
+        "LED2",
+        "LED1",
+        "LED0"
+      ],
+      "color": {
+        "r": 255,
+        "g": 0,
+        "b": 0
+      }
+    },
+    {
+      "type": "button",
+      "signal": "Keys",
+      "top": 690,
+      "left": 525,
+      "height": 49,
+      "width": 320,
+      "rotation": 0,
+      "upsidedown": "false",
+      "count": 4,
+      "ctrlHeight": 40,
+      "ctrlWidth": 40,
+      "ctrlSpacing": 81,
+      "labels": [
+        "KEY3",
+        "KEY2",
+        "KEY1",
+        "KEY0"
+      ],
+      "momentary": true
+    },
+    {
+      "type": "switch",
+      "signal": "Switches",
+      "top": 678,
+      "left": 68,
+      "height": 50,
+      "width": 440,
+      "rotation": 0,
+      "upsidedown": "false",
+      "count": 10,
+      "ctrlHeight": 50,
+      "ctrlWidth": 25,
+      "ctrlSpacing": 44,
+      "labels": [
+        "SW9",
+        "SW8",
+        "SW7",
+        "SW6",
+        "SW5",
+        "SW4",
+        "SW3",
+        "SW2",
+        "SW1",
+        "SW0"
+      ]
+    },
+    {
+      "type": "seg7",
+      "signals": [
+        "Hex5",
+        "Hex4",
+        "Hex3",
+        "Hex2",
+        "Hex1",
+        "Hex0"
+      ],
+      "digits": 6,
+      "top": 564,
+      "left": 82,
+      "height": 48,
+      "width": 306,
+      "rotation": 0,
+      "upsidedown": "false",
+      "ctrlHeight": 48,
+      "ctrlWidth": 30,
+      "ctrlSpacing": 51,
+      "labels": [
+        "HEX5",
+        "HEX4",
+        "HEX3",
+        "HEX2",
+        "HEX1",
+        "HEX0"
+      ],
+      "color": {
+        "r": 255,
+        "g": 0,
+        "b": 0
+      },
+      "slantDeg": -10
+    }
+  ]
+}

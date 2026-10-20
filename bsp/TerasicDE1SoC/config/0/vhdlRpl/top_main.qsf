@@ -32,8 +32,8 @@ set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 #============================================================
 # CLOCKS
 #============================================================
-set_location_assignment PIN_AF14 -to clk
-set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
+set_location_assignment PIN_AF14 -to gclk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to gclk
 #set_location_assignment PIN_AA16 -to CLOCK2_50
 #set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK2_50
 #set_location_assignment PIN_Y26 -to CLOCK3_50
@@ -41,9 +41,9 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk
 #set_location_assignment PIN_K14 -to CLOCK4_50
 #set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to CLOCK4_50
 
-# clk_50_settings (Main clock)
+# gclk_50_settings (Main clock)
 set_global_assignment -name FMAX_REQUIREMENT "50.0 MHz" -section_id clk_50_settings
-set_instance_assignment -name CLOCK_SETTINGS clk_50_settings -to clk
+set_instance_assignment -name CLOCK_SETTINGS clk_50_settings -to gclk
 
 # clk_27_settings (Video decoder clock)
 #set_global_assignment -name FMAX_REQUIREMENT "27.0 MHz" -section_id clk_27_settings

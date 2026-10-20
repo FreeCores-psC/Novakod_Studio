@@ -53,4 +53,13 @@ echo -------------------------------------
 echo Displaying waveform:    %%~nxf
 echo -------------------------------------
 
+copy %currentdir%targets\%SessionID%.vcd  C:\Novakod_Studio\WebViewer\Surfer\vcd\%SessionID%.vcd
+copy %currentdir%targets\%SessionID%.sucl C:\Novakod_Studio\WebViewer\Surfer\vcd\%SessionID%.sucl
+
+cd C:\Novakod_Studio\WebViewer\Surfer
+
+call C:\Novakod_Studio\WebViewer\Surfer\StartServer.bat
+
+call C:\Novakod_Studio\WebViewer\Surfer\StartClient.bat
+
 exit                  

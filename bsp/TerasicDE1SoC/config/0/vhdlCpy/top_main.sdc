@@ -6,9 +6,8 @@
 #**************************************************************
 # Create Clock
 #**************************************************************
-  
-create_clock -name {clk}    -period 20.000 -waveform { 0.000 10.000 } [get_ports {clk}]
-create_clock -name {memclk} -period 10.000 -waveform { 0.000  5.000 } [get_ports {memclk}]
+create_clock -name {gclk}   -period 20.000 -waveform {  0.000 10.000 } [get_ports {gclk}]
+create_clock -name {memclk} -period 20.000 -waveform { 10.000 20.000 } [get_ports {memclk}]
 
 #create_clock -period 20 [get_ports CLOCK2_50]
 #create_clock -period 20 [get_ports CLOCK3_50]
@@ -56,7 +55,7 @@ derive_clock_uncertainty
 #**************************************************************
 # Set Input Delay
 #**************************************************************
-# Board Delay (Data) + Propagation Delay - Board Delay (clk)
+# Board Delay (Data) + Propagation Delay - Board Delay (gclk)
 #set_input_delay -max -clock clk_dram -0.048 [get_ports DRAM_DQ*]
 #set_input_delay -min -clock clk_dram -0.057 [get_ports DRAM_DQ*]
 
@@ -73,8 +72,8 @@ derive_clock_uncertainty
 #**************************************************************
 # Set Output Delay
 #**************************************************************
-# max : Board Delay (Data) - Board Delay (clk) + tsu (External Device)
-# min : Board Delay (Data) - Board Delay (clk) - th (External Device)
+# max : Board Delay (Data) - Board Delay (gclk) + tsu (External Device)
+# min : Board Delay (Data) - Board Delay (gclk) - th (External Device)
 #set_output_delay -max -clock clk_dram 1.452  [get_ports DRAM_DQ*]
 #set_output_delay -min -clock clk_dram -0.857 [get_ports DRAM_DQ*]
 #set_output_delay -max -clock clk_dram 1.531 [get_ports DRAM_ADDR*]

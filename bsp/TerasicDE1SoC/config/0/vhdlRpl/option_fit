@@ -1,1 +1,1 @@
-%top_circuit_name% --csf=./top_main.qsf" 
+%top_circuit_name% 

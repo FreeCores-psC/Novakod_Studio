@@ -1,0 +1,12 @@
+module_add top;
+
+show iCmd;
+show iCmd_ev;
+show iLoadVal;
+show oValue;
+show oValue_ev;
+
+toggle_menu;
+toggle_side_panel;
+zoom full;
+

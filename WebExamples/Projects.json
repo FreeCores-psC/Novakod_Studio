@@ -1,81 +1,106 @@
 [
   {
     "Id": "Learn_psC",
+    "displayName": "Learn psC",
     "Projects": [
       {
-        "Id": "Introduction"
+        "Id": "Introduction",
+        "displayName": "Introduction"
       },
       {
         "Id": "HelloWorld",
+        "displayName": "Hello World!",
+        "howTo": "Type any char to display the Hello Novakod World message",
         "SimulationMode": "Console",
         "N": "50000000",
-        "Libraries": [ "Learn_psCLib.psC" ]
+        "Libraries": [],
+        "Viewers": []
       },
       {
         "Id": "Loopback",
+        "displayName": "Loopback",
         "SimulationMode": "Console",
         "N": "50000000",
-        "Library": [ "Learn_psCLib.psC" ]
+        "Libraries": [],
+        "Viewers": []
       },
       {
         "Id": "Counter",
+        "displayName": "Counter",
         "SimulationMode": "Console",
         "N": "50000000",
-        "Library": [ "Learn_psCLib.psC" ]
-      }
-    ]
-  },
-  {
-    "Id": "TestBench",
-    "Projects": [
-      {
-        "Id": "How to"
-      },
-      {
-        "Id": "CounterBench",
-        "SimulationMode": "Wave",
-        "N": "2000",
-        "Libraries": [ "TestBenchLib.psC" ]
+        "Libraries": [],
+        "Viewers": []
       }
     ]
   },
   {
     "Id": "DE1SoC",
+    "displayName": "Terasic DE1SoC",
     "Projects": [
       {
-        "Id": "How to"
+        "Id": "Howto",
+        "displayName": "How to?"
       },
       {
         "Id": "Counter",
+        "displayName": "Counter",
+        "SimulationMode": "DE1SoC",
+        "N": "50000000",
+        "Libraries": [],
+        "Viewers": []
+      }
+    ]
+  },
+  {
+    "Id": "TestBench",
+    "displayName": "Test Bench",
+    "Projects": [
+      {
+        "Id": "Howto",
+        "displayName": "How to?"
+      },
+      {
+        "Id": "CounterBench",
+        "displayName": "Counter Bench",
         "SimulationMode": "Wave",
         "N": "2000",
-        "Libraries": [ "DE1SoCLib.psC" ]
+        "Libraries": [],
+        "Viewers": []
       }
     ]
   },
   {
     "Id": "Sandbox",
+    "displayName": "Sandbox",
     "Projects": [
       {
-        "Id": "How to"
+        "Id": "UsingTheSandbox",
+        "displayName": "Using the Sandbox"
       },
       {
-        "Id": "Console",
+        "Id": "SbConsole",
+        "displayName": "Sandbox Console",
         "SimulationMode": "Console",
         "N": "50000000",
-        "Libraries": [ "SandboxLib.psC" ]
+        "Libraries": [],
+        "Viewers": []
       },
       {
-        "Id": "Wave",
+        "Id": "SbWave",
+        "displayName": "Sandbox Wave",
         "SimulationMode": "Wave",
         "N": "2000",
-        "Libraries": [ "SandboxLib.psC" ]
+        "Libraries": [],
+        "Viewers": []
       },
       {
-        "Id": "DE1SoC",
+        "Id": "SbDE1SoC",
+        "displayName": "Sandbox DE1SoC",
         "SimulationMode": "DE1SoC",
         "N": "50000000",
-        "Libraries": [ "SandboxLib.psC" ]
+        "Libraries": [],
+        "Viewers": []
       }
     ]
   }

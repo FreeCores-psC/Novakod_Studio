@@ -14,6 +14,16 @@ package TerasicDE1SoCPll is
   	);                    
    end component;
   
+    component MemClkPLL is
+    port
+    (
+	    refclk :   in  std_logic;
+	    rst :      in  std_logic;
+	    outclk_0 : out std_logic;
+	    outclk_1 : out std_logic
+	 );
+    end component;
+
 
 end TerasicDE1SoCPll;
 

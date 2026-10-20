@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Local HTML Documentation Editor</title>
+
+  <script src="tinymce/tinymce.min.js"></script>
+  <script src="prism/prism.js"></script>
+  <link rel="stylesheet" href="prism/prism.css" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      color: #222;
+    }
+    
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: #ffffff;
+      border-bottom: 1px solid #d0d0d0;
+    }
+
+    button,
+    input[type="file"] {
+      font-size: 14px;
+    }
+
+    button {
+      padding: 7px 12px;
+      border: 1px solid #bdbdbd;
+      background: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #f0f0f0;
+    }
+
+    .status {
+      margin-left: auto;
+      font-size: 13px;
+      color: #555;
+      white-space: nowrap;
+    }
+
+    .editor-wrap {
+      padding: 12px;
+    }
+
+    .note {
+      padding: 0 12px 12px 12px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    pre[class*="language-"] {
+      line-height: 1.4;
+    }                           
+        
+    pre[class*="language-"],
+    code[class*="language-"] {
+      font-family: "Cascadia Mono", Cascadia, Consolas, monospace !important;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <input type="file" id="fileInput" accept=".html,.htm,text/html" />
+    <button id="saveBtn" type="button">Save HTML</button>
+    <button id="newBtn" type="button">New Document</button>
+    <span class="status" id="status">Ready</span>
+  </div>
+
+  <div class="editor-wrap" id="editor-wrap-id">
+    <textarea id="editor"></textarea>
+  </div>
+
+  <div class="note">
+    Open a local HTML file, edit it visually like a word processor, insert embedded images, and use code samples for C++, psC, VHDL, and Verilog.
+  </div>
+
+  <script>
+    let editorReadyResolve;
+    let hasLoadedUserFile = false;    
+    
+    const editorReady = new Promise((resolve) => {
+      editorReadyResolve = resolve;
+    });
+
+    function makeEditorCss(css) {
+      return css.replace(/(^|})\s*([^{}]+)\s*\{/g, function (match, prefix, selectorGroup) {
+        const scopedSelectors = selectorGroup
+          .split(",")
+          .map(function (selector) {
+            selector = selector.trim();
+            if (!selector) return "";
+    
+            if (selector.startsWith("body")) {
+              return selector.replace(/^body\b/, "body.mce-content-body");
+            }
+    
+            return "body.mce-content-body " + selector;
+          })
+          .filter(Boolean)
+          .join(",\n");
+    
+        return prefix + "\n" + scopedSelectors + " {";
+      });
+    }
+
+const baseDocumentCss = `
+body {
+  font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #222;
+  margin: 1rem;
+}
+
+p {
+  font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6;
+  margin: 0 0 0.8em 0;
+  color: #222;
+}
+
+blockquote {
+  font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+  font-style: italic; 
+  font-size: 16px;
+  border-left: 4px solid #9bb8d9;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 15px; 
+  margin-left: 1.2em; 
+  color: #3153a1;  
+}
+
+h1 {
+  font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+  color: #1f4e79;
+  font-size: 28px;
+  font-weight: bold;
+  font-style: normal;
+  border-bottom: 2px solid #1f4e79;
+  padding-bottom: 4px;
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+}
+
+h2 {
+  font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+  color: #2e75b6;
+  font-size: 22px;
+  font-weight: bold;
+  font-style: normal;
+  border-bottom: 1px solid #2e75b6;
+  padding-bottom: 3px;
+  margin-top: 1.1em;
+  margin-bottom: 0.5em;
+}
+
+h3 {
+  font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+  color: #44546a;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+}
+
+h4 {
+  font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+  color: #555;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 1em;
+  margin-bottom: 0.4em;
+}
+
+.note-box,
+.warning-box,
+.tip-box {
+  font-family: "Aptos", "Segoe UI", Arial, sans-serif;
+  border-left: 5px solid;
+  padding: 10px 14px;
+  margin: 1em 0;
+  border-radius: 4px;
+}
+
+.note-box {
+  background: #f4f8fc;
+  border-left-color: #5b8ec7;
+  color: #234a75;
+}
+
+.warning-box {
+  background: #fff7e8;
+  border-left-color: #d48806;
+  color: #8a4b00;
+}
+
+.tip-box {
+  background: #f6fff6;
+  border-left-color: #52a552;
+  color: #256025;
+}
+
+.note-box strong,
+.warning-box strong,
+.tip-box strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #888;
+  padding: 6px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+pre[class*="language-"] {
+  border: 1px solid #d8d8d8;
+  border-radius: 6px;
+  padding: 12px;
+  overflow-x: auto;
+  background: #ffffff;
+}
+
+pre[class*="language-"],
+code[class*="language-"] {
+  font-family: "Cascadia Mono", Consolas, "Courier New", monospace !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  tab-size: 4;
+}
+
+/* Generic Prism colors */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #008000;
+}
+
+.token.punctuation {
+  color: #000000;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #098658;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #A31515;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #000000;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #0000FF;
+}
+
+.token.function,
+.token.class-name {
+  color: #795E26;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #811F3F;
+}
+
+/* psC overrides */
+.language-psc .token.keyword,
+.language-psC .token.keyword {
+  color: #6428b4;
+  font-weight: bold;
+}
+
+.language-psc .token.type,
+.language-psC .token.type {
+  color: #226a86;
+  font-style: italic;
+}
+
+.language-psc .token.preproc,
+.language-psC .token.preproc {
+  color: #9f5000;
+}
+
+.language-psc .token.function,
+.language-psC .token.function {
+  color: #105ab6;
+}
+
+.language-psc .token.number,
+.language-psC .token.number,
+.language-psc .token.number-binary,
+.language-psC .token.number-binary,
+.language-psc .token.number-hex,
+.language-psC .token.number-hex,
+.language-psc .token.number-boolean,
+.language-psC .token.number-boolean,
+.language-psc .token.number-time,
+.language-psC .token.number-time,
+.language-psc .token.floatfix,
+.language-psC .token.floatfix,
+.language-psc .token.boolean,
+.language-psC .token.boolean {
+  color: #be0169;
+}
+
+.language-psc .token.string,
+.language-psC .token.string {
+  color: #b35900;
+}
+
+.language-psc .token.escape,
+.language-psC .token.escape {
+  color: #ffb916;
+}
+
+.language-psc .token.comment,
+.language-psC .token.comment {
+  color: #008000;
+}
+
+.language-psc .token.operator,
+.language-psC .token.operator,
+.language-psc .token.operator-logic,
+.language-psC .token.operator-logic,
+.language-psc .token.operator-shift,
+.language-psC .token.operator-shift,
+.language-psc .token.delimiter,
+.language-psC .token.delimiter,
+.language-psc .token.delimiter-colon,
+.language-psC .token.delimiter-colon,
+.language-psc .token.punctuation,
+.language-psC .token.punctuation {
+  color: #ff5000;
+}
+
+.language-psc .token.identifier,
+.language-psC .token.identifier {
+  color: #002953;
+}
+`;
+
+const savedDocumentCss = baseDocumentCss;
+    /* =========================================================
+       Custom Prism language for psC
+       ========================================================= */
+    Prism.languages.psc = {
+      comment: [
+        /\/\/.*/,
+        /\/\*[\s\S]*?\*\//
+      ],
+
+      string: {
+        pattern: /"(?:\\(?:[abfnrtv\\"'0]|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})|[^"\\])*"/,
+        greedy: true,
+        inside: {
+          escape: /\\(?:[abfnrtv\\"'0]|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/
+        }
+      },
+
+      char: {
+        pattern: /'(?:\\(?:[abfnrtv\\"'0]|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})|[^'\\])'/,
+        greedy: true,
+        inside: {
+          escape: /\\(?:[abfnrtv\\"'0]|x[0-9A-Fa-f]{1,4}|u[0-9A-Fa-f]{4}|U[0-9A-Fa-f]{8})/
+        }
+      },
+
+      "number-time": /\b(?:\d+(?::\d+(?::\d+)?)\s*(?:day|hour|min|sec|msec|usec|nsec)|\d+(?:\.\d+)?\s*(?:day|hour|min|sec|msec|usec|nsec))\b/i,
+      type: /\b(?:trigger|boolean|bit|byte|ubyte|short|ushort|int|uint|long|ulong|fix8|fix16|fix32|fix64|float|double|time|string)(?::\d+)?\b/,
+      "number-boolean": /\b(?:true|false)\b/,
+      preproc: /\b(?:template|define|foreach|end|pragma)\b/,
+      keyword: /\b(?:component|library|identifier|lexeme|in|out|active|passive|on|step|typeof|sizeof|default|case|if|else|switch|struct|const|to|typedef|hard|enum|shared|register|extern|sequential|memory|while|do|continue|break|function|call|return|for)\b/,
+      function: /\b(?:isalnum|isalpha|isascii|iscntrl|isdigit|islower|isprint|ispunct|isspace|isupper|tolower|toupper|strcat|strchr|strcmp|strcpy|strcspn|strlen|strncat|strncmp|strncpy|strpbrk|strrchr|strspn|strstr|strtok|strset|strlwr|strnlwr|strupr|strnupr|atof|atoi|atol|div|abs|rand|srand|strtod|strtof|strtol|strtold|strtoul|getchar|putchar|gets|puts|sscanf|sprintf|fopen|fclose|feof|fgetc|fputc|fgets|fputs|fread|fwrite|acos|asin|atan|atan2|bit|bits|ceil|cos|cosh|exp|exponent|floor|getScanPeriod|getTimer|istrig|log|log2|log10|mantissa|mulex|pow|setbit|setbits|setTimer|sign|sin|sinh|sqrt|start|startTimer|stop|stopTimer|tan|tanh|timerEnd|timeToStep|always|loop|setup|acos_s|asin_s|atan_s|atan2_s|ceil_s|cos_s|cosh_s|exp_s|floor_s|log_s|log2_s|log10_s|pow_s|sin_s|sinh_s|sqrt_s|tan_s|tanh_s)\b(?=\s*\()/,
+      floatfix: /\b(?:\d*\.\d+(?:[eE][\-+]?\d+)?(?:x8|x16|x32|x64|f|F)?|\d+[eE][\-+]?\d+(?:x8|x16|x32|x64|f|F)?)\b/,
+      "number-hex": /\b0[xX][0-9a-fA-F]+(?:t|b|ub|s|us|i|ui|l|ul|ns)?\b/,
+      "number-binary": /\b0[01]+(?:t|b|ub|s|us|i|ui|l|ul|ns)?\b/,
+      number: /\b\d+(?:t|b|ub|s|us|i|ui|l|ul|ns)?\b/,
+      "operator-logic": /&&|\|\|/,
+      "operator-shift": /<<|>>/,
+      operator: /[+\-*/%&|^~!=<>?#\\]+=?|::|\+\+|--/,
+      delimiter: /[;,]/,
+      "delimiter-colon": /:/,
+      punctuation: /[{}()[\].]/
+    };
+
+    Prism.languages.psC = Prism.languages.psc;
+
+    let currentFileName = "document.html";
+    let currentDocStart = "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<title>Document</title>\n</head>\n<body>\n";
+    let currentDocEnd = "\n</body>\n</html>";
+    let isDirty = false;   
+
+    const fileInput = document.getElementById("fileInput");
+    const saveBtn = document.getElementById("saveBtn");
+    const newBtn = document.getElementById("newBtn");
+    const statusEl = document.getElementById("status");
+
+    function setStatus(text) {
+      statusEl.textContent = text;
+    }
+
+    function splitHtmlDocument(fullHtml) {
+      const bodyMatch = fullHtml.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i);
+
+      if (bodyMatch) {
+        const bodyInner = bodyMatch[1];
+        const fullMatch = bodyMatch[0];
+        const bodyStartIndex = bodyMatch.index;
+        const bodyEndIndex = bodyStartIndex + fullMatch.length;
+
+        const bodyOpenMatch = fullMatch.match(/<body\b[^>]*>/i);
+        const bodyOpenTag = bodyOpenMatch ? bodyOpenMatch[0] : "<body>";
+
+        return {
+          start: fullHtml.substring(0, bodyStartIndex) + bodyOpenTag + "\n",
+          body: bodyInner.trim(),
+          end: "\n</body>" + fullHtml.substring(bodyEndIndex)
+        };
+      }
+
+      return {
+        start: "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<title>Document</title>\n</head>\n<body>\n",
+        body: fullHtml,
+        end: "\n</body>\n</html>"
+      };
+    }
+
+    async function waitForEditor() {
+      return new Promise((resolve) => {
+        const check = () => {
+          const ed = tinymce.get("editor");
+          if (ed) {
+            resolve(ed);
+          } else {
+            setTimeout(check, 50);
+          }
+        };
+        check();
+      });
+    }
+
+    async function getEditor() {
+      return await waitForEditor();
+    }
+
+    function normalizeCodeBlocks(root) {
+      if (!root) return;
+
+      root.querySelectorAll("pre[class*='language-']").forEach((pre) => {
+        if (!pre.querySelector("code")) {
+          const cls = pre.className;
+          const code = document.createElement("code");
+          code.className = cls;
+          code.textContent = pre.textContent;
+          pre.textContent = "";
+          pre.appendChild(code);
+        }
+      });
+
+      root.querySelectorAll("code[class*='language-']").forEach((code) => {
+        const parent = code.parentElement;
+        if (!parent || parent.tagName.toLowerCase() !== "pre") {
+          const pre = document.createElement("pre");
+          pre.className = code.className;
+          code.parentNode.insertBefore(pre, code);
+          pre.appendChild(code);
+        }
+      });
+    }
+
+    function recolorEditor() {
+      const editor = tinymce.get("editor");
+      if (!editor || !window.Prism) return;
+
+      const body = editor.getBody();
+      if (!body) return;
+
+      normalizeCodeBlocks(body);
+
+      body.querySelectorAll("code[class*='language-']").forEach((el) => {
+        Prism.highlightElement(el);
+      });
+    }
+
+    async function loadBodyHtml(bodyHtml) {
+      const editor = await getEditor();
+      editor.setContent(bodyHtml || "<p></p>");
+      recolorEditor();
+      isDirty = false;
+      setStatus("Loaded: " + currentFileName);
+    }
+
+    async function getBodyHtml() {
+      const editor = await getEditor();
+      return editor.getContent();
+    }
+
+    function normalizeCodeBlocks(root) {
+      if (!root) return;
+    
+      root.querySelectorAll("pre[class*='language-']").forEach((pre) => {
+        if (!pre.querySelector("code")) {
+          const cls = pre.className;
+          const code = document.createElement("code");
+          code.className = cls;
+          code.textContent = pre.textContent;
+          pre.textContent = "";
+          pre.appendChild(code);
+        }
+      });
+    
+      root.querySelectorAll("code[class*='language-']").forEach((code) => {
+        const parent = code.parentElement;
+        if (!parent || parent.tagName.toLowerCase() !== "pre") {
+          const pre = document.createElement("pre");
+          pre.className = code.className;
+          code.parentNode.insertBefore(pre, code);
+          pre.appendChild(code);
+        }
+      });
+    }
+    
+    async function saveToDownload() {
+      function ensureUtf8Meta(docStart) {
+        if (!docStart || !docStart.trim()) {
+          return "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n</head>\n<body>\n";
+        }
+    
+        // Replace existing charset meta with UTF-8
+        if (/<meta\s+charset=/i.test(docStart)) {
+          return docStart.replace(
+            /<meta\s+charset=["']?[^"'>\s]+["']?\s*\/?>/i,
+            '<meta charset="UTF-8">'
+          );
+        }
+    
+        // Replace old-style content-type meta with UTF-8
+        if (/<meta[^>]+content=["'][^"']*charset=/i.test(docStart)) {
+          return docStart.replace(
+            /<meta[^>]+content=["'][^"']*charset=[^"']*["']\s*\/?>/i,
+            '<meta charset="UTF-8">'
+          );
+        }
+    
+        // Insert UTF-8 meta inside existing head
+        if (/<head\b[^>]*>/i.test(docStart)) {
+          return docStart.replace(
+            /<head\b[^>]*>/i,
+            match => `${match}\n<meta charset="UTF-8">`
+          );
+        }
+    
+        // Fallback if head is missing
+        return "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n</head>\n<body>\n";
+      }
+    
+      const bodyHtml = await getBodyHtml();
+    
+      const temp = document.createElement("div");
+      temp.innerHTML = bodyHtml;
+    
+      // Normalize code blocks before highlighting
+      normalizeCodeBlocks(temp);
+    
+      // Force Prism highlighting into saved HTML
+      temp.querySelectorAll("pre[class*='language-'], pre code[class*='language-'], code[class*='language-']").forEach((node) => {
+        let pre = null;
+        let code = null;
+    
+        if (node.tagName.toLowerCase() === "pre") {
+          pre = node;
+          code = pre.querySelector("code");
+    
+          if (!code) {
+            code = document.createElement("code");
+            code.className = pre.className;
+            code.textContent = pre.textContent || "";
+            pre.textContent = "";
+            pre.appendChild(code);
+          }
+        } else if (node.tagName.toLowerCase() === "code") {
+          code = node;
+          pre = code.parentElement && code.parentElement.tagName.toLowerCase() === "pre"
+            ? code.parentElement
+            : null;
+        }
+    
+        if (!code) return;
+    
+        const classText = `${code.className || ""} ${pre ? pre.className || "" : ""}`.trim();
+        const match = classText.match(/language-([a-zA-Z0-9_-]+)/);
+        if (!match) return;
+    
+        const lang = match[1];
+        const grammar = Prism.languages[lang];
+        if (!grammar) return;
+    
+        code.className = `language-${lang}`;
+        if (pre) pre.className = `language-${lang}`;
+    
+        const rawCode = code.textContent || "";
+        code.innerHTML = Prism.highlight(rawCode, grammar, lang);
+      });
+    
+      let docStart = currentDocStart;
+      docStart = ensureUtf8Meta(docStart);
+    
+      if (/<head\b[^>]*>/i.test(docStart)) {
+        docStart = docStart.replace(
+          /<head\b[^>]*>/i,
+          match => `${match}\n<style>\n${savedDocumentCss}\n</style>\n`
+        );
+      } else {
+        docStart =
+          "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<style>\n" +
+          savedDocumentCss +
+          "\n</style>\n</head>\n<body>\n";
+      }
+      
+      docStart = ensureUtf8Meta(currentDocStart);
+      
+      // Remove ALL existing <style> blocks
+      docStart = docStart.replace(/<style[\s\S]*?<\/style>\s*/gi, "");
+      
+      // Insert our style
+      if (/<head\b[^>]*>/i.test(docStart)) {
+        docStart = docStart.replace(
+          /<head\b[^>]*>/i,
+          match => `${match}\n<style>\n${savedDocumentCss}\n</style>\n`
+        );
+      } else {
+        docStart =
+          "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<style>\n" +
+          savedDocumentCss +
+          "\n</style>\n</head>\n<body>\n";
+      }    
+
+      const fullHtml = docStart + temp.innerHTML + currentDocEnd;
+    
+      const blob = new Blob([fullHtml], { type: "text/html;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+    
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = currentFileName || "document.html";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    
+      URL.revokeObjectURL(url);
+    
+      isDirty = false;
+      setStatus("Saved: " + currentFileName);
+    }
+/*
+    //==========================================================================
+    // Handle drop html file
+    // Get the elements  
+    const dropZone = document.getElementById("editor-wrap-id");
+    
+    // Prevent default drag behaviors on the window and the drop zone
+    window.addEventListener("dragover", (e) => e.preventDefault(), false);
+    window.addEventListener("drop", (e) => e.preventDefault(), false);
+    
+    // Add event listeners for the drop zone
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault(); // REQUIRED to allow drop
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      handleFileDrop(e);
+    });    
+
+    function handleFileDrop(e) {
+        e.preventDefault();
+        dropZone.classList.remove("dragover");
+    
+        const files = e.dataTransfer.files;
+    
+        if (files && files.length > 0) {
+            const file = files[0];
+    
+            const name = file.name.toLowerCase();
+            const isHtmlType = file.type === "text/html";
+            const isHtmlExt = name.endsWith(".html") || name.endsWith(".htm");
+    
+            console.log("Dropped file:", file.name);
+            console.log("MIME type:", file.type);
+    
+            if (isHtmlType || isHtmlExt) {
+                const reader = new FileReader();
+    
+                reader.onload = function (e) {
+                    editor.setContent(e.target.result);
+                };
+    
+                reader.readAsText(file);
+            } else {
+                alert("Dropped file type is not supported. Please drop an HTML file.");
+            }
+        }
+    }   
+*/    
+    tinymce.init({
+      selector: "#editor",
+      browser_spellcheck: true,    
+      contextmenu: false,
+              
+      codesample_languages: [
+        { text: 'psC', value: 'psc' },
+        { text: 'C++', value: 'cpp' },
+        { text: 'C', value: 'c' },
+        { text: 'VHDL', value: 'vhdl' },
+        { text: 'Verilog', value: 'verilog' }
+      ],    
+      
+      forced_root_block: "p",            
+      
+      font_family_formats:
+        "Aptos=Aptos,'Segoe UI',Arial,sans-serif;" +
+        "Segoe UI='Segoe UI',Arial,sans-serif;" +
+        "Arial=Arial,Helvetica,sans-serif;" +
+        "Cascadia Mono='Cascadia Mono',Consolas,'Courier New',monospace;" +
+        "Consolas=Consolas,'Courier New',monospace;" +
+        "Courier New='Courier New',monospace;" +
+        "Georgia=Georgia,serif;" +
+        "Times New Roman='Times New Roman',Times,serif",
+  
+      height: 700,
+      license_key: "gpl",
+      menubar: "file edit view insert format table help",
+      toolbar_sticky: true,
+      toolbar_sticky_offset: 50,
+
+      valid_children: "+pre[code]",
+      invalid_styles: {
+        pre: "font-family font-size font-weight font-style",
+        code: "font-family font-size font-weight font-style"
+      },
+      
+      content_style: makeEditorCss(baseDocumentCss),  
+    
+      plugins: [
+        "lists", "link", "image", "table", "code", "codesample", "preview",
+        "searchreplace", "fullscreen", "autolink", "charmap"
+      ],
+
+      toolbar:
+        "undo redo | styles | " +
+        "bold italic underline | forecolor backcolor | " +
+        "alignleft aligncenter alignright alignjustify | " +
+        "bullist numlist outdent indent | " +
+        "link table image codesample charmap | removeformat | code preview fullscreen",
+
+      block_formats:
+        "Paragraph=p; Blockquote=blockquote; Heading 1=h1; Heading 2=h2; Heading 3=h3; Heading 4=h4",
+
+      // Configure TinyMCE to handle drops via a custom setup handler
+      setup: function (editor) {
+          editor.on('drop', function (e) {
+            console.log('A drop event occurred!', e);
+              if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+                  handleFileDrop(e.dataTransfer.files[0], editor);
+                  e.preventDefault(); // Prevent TinyMCE's default drop handling
+              }
+          });  
+      },
+      
+      style_formats: [
+        { title: "Paragraph", block: "p" },
+        { title: "Heading 1", block: "h1" },
+        { title: "Heading 2", block: "h2" },
+        { title: "Heading 3", block: "h3" },
+        { title: "Heading 4", block: "h4" },
+        { title: "Blockquote", block: "blockquote" },
+      
+        {
+          title: "Note",
+          block: "div",
+          classes: "note-box",
+          wrapper: true
+        },
+        {
+          title: "Warning",
+          block: "div",
+          classes: "warning-box",
+          wrapper: true
+        },
+        {
+          title: "Tip",
+          block: "div",
+          classes: "tip-box",
+          wrapper: true
+        }
+      ],      
+      
+      paste_data_images: true,
+
+      charmap_append: [
+        [0x2192, "Right arrow"],
+        [0x2190, "Left arrow"],
+        [0x21D2, "Implies"],
+        [0x2260, "Not equal"],
+        [0x2264, "Less or equal"],
+        [0x2265, "Greater or equal"],
+        [0x03C0, "Pi"],
+        [0x03A9, "Omega"],
+        [0x00B5, "Micro"],
+        [0x00B1, "Plus minus"],
+        [0x2713, "Check mark"],
+        [0x2717, "Cross mark"]
+      ],
+
+      codesample_global_prismjs: true,
+      
+      codesample_languages: [
+        { text: "psC", value: "psc" },
+        { text: "C++", value: "cpp" },
+        { text: "C", value: "c" },
+        { text: "VHDL", value: "vhdl" },
+        { text: "Verilog", value: "verilog" }
+      ],
+
+      branding: false,
+      promotion: false,
+
+      image_title: true,
+      automatic_uploads: false,
+      file_picker_types: "image",
+      convert_urls: false,
+      relative_urls: false,
+      remove_script_host: false,
+
+      file_picker_callback: function (callback, value, meta) {
+        if (meta.filetype !== "image") return;
+
+        const input = document.createElement("input");
+        input.type = "file";
+        input.accept = "image/*";
+
+        input.onchange = function () {
+          const file = this.files && this.files[0];
+          if (!file) return;
+
+          const reader = new FileReader();
+
+          reader.onload = function () {
+            callback(reader.result, {
+              alt: file.name,
+              title: file.name
+            });
+          };
+
+          reader.onerror = function () {
+            alert("Could not read image file.");
+          };
+
+          reader.readAsDataURL(file);
+        };
+
+        input.click();
+      },
+
+      setup: function (editor) {
+        function extractTextWithLineBreaks(node) {
+          if (!node) return "";
+
+          let result = "";
+
+          function walk(n) {
+            if (n.nodeType === Node.TEXT_NODE) {
+              result += n.nodeValue || "";
+              return;
+            }
+
+            if (n.nodeType !== Node.ELEMENT_NODE) return;
+
+            const tag = n.tagName.toLowerCase();
+
+            if (tag === "br") {
+              result += "\n";
+              return;
+            }
+
+            const isBlock =
+              tag === "div" ||
+              tag === "p" ||
+              tag === "pre" ||
+              tag === "li" ||
+              tag === "tr" ||
+              tag === "table" ||
+              tag === "section" ||
+              tag === "article";
+
+            if (isBlock && result && !result.endsWith("\n")) {
+              result += "\n";
+            }
+
+            for (const child of n.childNodes) {
+              walk(child);
+            }
+
+            if (isBlock && !result.endsWith("\n")) {
+              result += "\n";
+            }
+          }
+
+          walk(node);
+
+          return result
+            .replace(/\r/g, "")
+            .replace(/\n{3,}/g, "\n\n")
+            .trim();
+        }
+
+        editor.on("init", function () {
+          recolorEditor();
+          if (editorReadyResolve) editorReadyResolve(editor);
+        });
+
+        editor.on("change input undo redo setcontent", function () {
+          isDirty = true;
+          setStatus("Editing: " + currentFileName + " *");
+        });
+
+        editor.on("SetContent", function () {
+          recolorEditor();
+        });
+
+        editor.on("init", function () {
+          recolorEditor();
+        });
+
+        editor.on("PastePostProcess", function (e) {
+          const text = extractTextWithLineBreaks(e.node);
+          if (!text) return;
+
+          const looksLikeCode = false;
+/*               text.includes(";")
+            || text.includes("{")
+            || text.includes("}")
+            || text.includes("#include")
+            || text.includes("component")
+            || text.includes("entity")
+            || text.includes("module");
+*/
+          if (!looksLikeCode) return;
+
+          let lang = "cpp";
+
+          if (text.includes("component") || text.includes("setbits")) {
+            lang = "psc";
+          } else if (text.toLowerCase().includes("library ieee") || text.toLowerCase().includes("std_logic")) {
+            lang = "vhdl";
+          } else if (text.includes("module") && text.includes("endmodule")) {
+            lang = "verilog";
+          }
+
+          const escaped = text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+
+          e.node.innerHTML =
+            `<pre class="language-${lang}"><code class="language-${lang}">${escaped}</code></pre>`;
+
+          setTimeout(() => recolorEditor(), 0);
+        });
+
+        editor.on("PastePostProcess", function (e) {
+        
+          // Do not touch code blocks
+          if (e.node.querySelector("pre")) return;
+        
+          // Replace <br> by paragraph breaks
+          e.node.innerHTML = e.node.innerHTML
+            .replace(/<br\s*\/?>/gi, "</p><p>");
+        
+        });
+      }
+    });
+
+    async function readHtmlFileWithEncoding(file) {
+      const buffer = await file.arrayBuffer();
+      const bytes = new Uint8Array(buffer);
+    
+      // Try to detect charset from the HTML itself
+      const asciiHead = new TextDecoder("ascii").decode(bytes.slice(0, 4096));
+      let charset = null;
+    
+      let m = asciiHead.match(/<meta[^>]+charset=["']?\s*([^"'>\s]+)/i);
+      if (m) charset = m[1].toLowerCase();
+    
+      if (!charset) {
+        m = asciiHead.match(/<meta[^>]+content=["'][^"']*charset=([^"'>\s;]+)/i);
+        if (m) charset = m[1].toLowerCase();
+      }
+    
+      // Normalize a few common names
+      if (charset === "utf8") charset = "utf-8";
+      if (charset === "ansi") charset = "windows-1252";
+      if (charset === "iso-8859-1") charset = "windows-1252";
+    
+      // Preferred decoding order
+      const candidates = charset
+        ? [charset, "utf-8", "windows-1252"]
+        : ["utf-8", "windows-1252"];
+    
+      for (const enc of candidates) {
+        try {
+          return new TextDecoder(enc).decode(bytes);
+        } catch (err) {
+          // try next
+        }
+      }
+    
+      // final fallback
+      return new TextDecoder("utf-8").decode(bytes);
+    }
+
+    fileInput.addEventListener("change", async function (event) {
+      const file = event.target.files[0];
+      if (!file) return;
+    
+      try {
+        const text = await readHtmlFileWithEncoding(file);
+        const parts = splitHtmlDocument(text);
+    
+        currentFileName = file.name || "document.html";
+        currentDocStart = parts.start;
+        currentDocEnd = parts.end;
+    
+        hasLoadedUserFile = true;
+        await loadBodyHtml(parts.body);
+    
+        isDirty = false;
+        setStatus("Loaded: " + currentFileName);
+        fileInput.value = "";
+      } catch (err) {
+        console.error(err);
+        alert("Could not open file.");
+      }
+    });    
+    
+    function ensureUtf8Meta(docStart) {
+      if (/<meta\s+charset=/i.test(docStart)) {
+        return docStart.replace(/<meta\s+charset=["'][^"']*["']\s*\/?>/i, '<meta charset="UTF-8">');
+      }
+    
+      if (/<head\b[^>]*>/i.test(docStart)) {
+        return docStart.replace(/<head\b[^>]*>/i, match => `${match}\n<meta charset="UTF-8">`);
+      }
+    
+      return "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n</head>\n<body>\n";
+    }
+
+    saveBtn.addEventListener("click", async function () {
+      try {
+        await saveToDownload();
+      } catch (err) {
+        console.error(err);
+        alert("Could not save file.");
+      }
+    });
+
+    newBtn.addEventListener("click", async function () {
+      if (isDirty) {
+        const ok = confirm("Current document has unsaved changes. Continue?");
+        if (!ok) return;
+      }
+    
+      currentFileName = "document.html";
+      currentDocStart =
+        "<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<title>Document</title>\n</head>\n<body>\n";
+      currentDocEnd = "\n</body>\n</html>";
+    
+      const editor = await getEditor();
+      editor.setContent(
+        `<h1>New Document</h1>
+         <p>Edit this documentation page directly.</p>
+         <h2>Code Samples</h2>
+         <p>Use the Code Sample button to insert C++, psC, VHDL, or Verilog code.</p>`
+      );
+    
+      recolorEditor();
+      isDirty = false;
+      setStatus("Ready");
+    });
+
+    window.addEventListener("load", async function () {
+      const editor = await getEditor();
+      const current = editor.getContent({ format: "html" }).trim();
+    
+      if (current) return;
+    
+      await loadBodyHtml(`... your test content ...`);
+      isDirty = false;
+      setStatus("Ready");
+    });
+
+    window.addEventListener("beforeunload", function (e) {
+      if (isDirty) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    });
+
+    window.addEventListener("load", async function () {
+      if (hasLoadedUserFile) return;
+    
+      await loadBodyHtml(
+        `<h1>Welcome</h1>
+         <p>Open an HTML documentation file and edit it visually. Inserted images are embedded directly in the HTML file.</p>
+         <p>Use the <b>Code Sample</b> toolbar button to insert syntax-highlighted C++, psC, VHDL, or Verilog code.</p>
+    
+         <h2>psC Test</h2>
+         <pre class="language-psc"><code>component CCounter(
+    in  passive bit     iClk,
+    in  passive bit     iReset,
+    out passive uint:8  oCount
+    )
+    {
+        uint:8 count;
+    
+        if (iReset)
+            count = 0;
+        else
+            count = count + 1;
+    
+        setbits(oCount, 7, 0, count);
+    }</code></pre>
+    
+         <h2>C++ Test</h2>
+         <pre class="language-cpp"><code>#include &lt;iostream&gt;
+    
+    int main() {
+        // hello
+        std::cout &lt;&lt; "Hello";
+        return 0;
+    }</code></pre>
+    
+         <h2>VHDL Test</h2>
+         <pre class="language-vhdl"><code>library ieee;
+    use ieee.std_logic_1164.all;
+    
+    entity Counter is
+      port (
+        iClk : in std_logic
+      );
+    end entity;</code></pre>
+    
+         <h2>Verilog Test</h2>
+         <pre class="language-verilog"><code>module top(
+      input wire clk,
+      output reg led
+    );
+    always @(posedge clk)
+      led &lt;= ~led;
+    endmodule</code></pre>`
+      );
+    
+      isDirty = false;
+      setStatus("Ready");
+    });
+  </script>
+</body>
+</html>

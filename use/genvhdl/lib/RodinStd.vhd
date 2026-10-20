@@ -17,8 +17,12 @@
 
 library IEEE;
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 
@@ -34,7 +38,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -51,7 +56,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -68,7 +74,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :      in  std_logic;
 			memclk :   in  std_logic;
@@ -90,7 +97,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :      in  std_logic;
 			memclk :   in  std_logic;
@@ -110,8 +118,8 @@ package RodinStd is
     component braminfr is
       generic( 
 		   size :     integer := 4; 
-         logsize :  integer := 2; 
-	      typeSize : integer := 32 );
+           logsize :  integer := 2; 
+	       typeSize : integer := 32 );
       port ( 
 		   clk :   in std_logic;
          we :    in std_logic;
@@ -142,7 +150,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -157,7 +166,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -172,7 +182,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :      in  std_logic;
 			memclk :   in  std_logic;
@@ -193,15 +204,16 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
 			we :     in  std_logic;
-         addrW :  in  unsigned(logsize  - 1 downto 0);
-         addrR :  in  unsigned(logsize  - 1 downto 0);
-         dataW :  in  unsigned(typeSize - 1 downto 0);
-         dataR :  out unsigned(typeSize - 1 downto 0) );
+            addrW :  in  unsigned(logsize  - 1 downto 0);
+            addrR :  in  unsigned(logsize  - 1 downto 0);
+            dataW :  in  unsigned(typeSize - 1 downto 0);
+            dataR :  out unsigned(typeSize - 1 downto 0) );
      end component;
      
      
@@ -209,22 +221,24 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
 			we :     in  std_logic;
-         addrW :  in  unsigned(logsize  - 1 downto 0);
-         addrR :  in  unsigned(logsize  - 1 downto 0);
-         dataW :  in  unsigned(typeSize - 1 downto 0);
-         dataR :  out unsigned(typeSize - 1 downto 0) );
+            addrW :  in  unsigned(logsize  - 1 downto 0);
+            addrR :  in  unsigned(logsize  - 1 downto 0);
+            dataW :  in  unsigned(typeSize - 1 downto 0);
+            dataR :  out unsigned(typeSize - 1 downto 0) );
      end component;
 
     component raminfrUnsignedShrd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :      in  std_logic;
 			memclk :   in  std_logic;
@@ -244,7 +258,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -260,7 +275,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -275,7 +291,8 @@ package RodinStd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :      in  std_logic;
 			memclk :   in  std_logic;
@@ -440,8 +457,12 @@ end RodinStd;  -- Package
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -451,7 +472,8 @@ entity raminfr is
   generic ( 
 	size :     integer; 
 	logsize :  integer; 
-	typeSize : integer );
+	typeSize : integer;
+    init_file: string );
   port ( 
 	clk :    in  std_logic;
 	memclk : in  std_logic;
@@ -467,7 +489,10 @@ architecture syn of raminfr is
   type ram_type is array (size -1 downto 0) of 
        std_logic_vector (typeSize -1 downto 0);
   signal RAM : ram_type;
-
+		 
+  attribute ram_init_file : string;
+  attribute ram_init_file of RAM : signal is init_file;
+  
 begin -- syn
   ----- Read process    
   process (memclk) 
@@ -494,8 +519,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -505,7 +534,8 @@ entity raminfrReg is
 generic(
   size :     integer; 
      logsize :  integer; 
-     typeSize : integer );
+     typeSize : integer;
+     init_file: string );
 port ( 
   clk :    in  std_logic;
   memclk : in  std_logic;
@@ -519,14 +549,18 @@ end raminfrReg;
 -----
 architecture syn of raminfrReg is
   type ram_type is array (size -1 downto 0) of 
-      std_logic_vector (typeSize -1 downto 0);
+       std_logic_vector (typeSize -1 downto 0);
   signal RAM : ram_type;
-  --  Quartus
+		 
+  attribute ram_init_file : string;
+  attribute ram_init_file of RAM : signal is init_file;
+--  Quartus
 --  attribute ramstyle : string;
 --  attribute ramstyle of RAM : signal is "logic";  
   --  Vivado
 --  attribute ram_style : string;
 --  attribute ram_style of RAM : signal is "distributed";  
+
 begin  -- syn
   ----- Read/Write process    
   process (clk, addrR)
@@ -550,8 +584,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -561,7 +599,8 @@ entity raminfrShrd is
   generic ( 
 	size :     integer; 
 	logsize :  integer; 
-	typeSize : integer );
+	typeSize : integer;
+    init_file: string );
   port ( 
 	clk :      in  std_logic;
 	memclk :   in  std_logic;
@@ -582,6 +621,9 @@ architecture syn of raminfrShrd is
   type ram_type is array (size -1 downto 0) of 
        std_logic_vector (typeSize -1 downto 0);
   signal RAM : ram_type;
+		 
+  attribute ram_init_file : string;
+  attribute ram_init_file of RAM : signal is init_file;
 
 begin -- syn
 	-- Read process: Port A
@@ -629,8 +671,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -640,7 +686,8 @@ entity raminfrShrdReg is
   generic ( 
 	size :     integer; 
 	logsize :  integer; 
-	typeSize : integer );
+	typeSize : integer;
+    init_file: string );
   port ( 
 	clk :      in  std_logic;
 	memclk :   in  std_logic;
@@ -661,6 +708,9 @@ architecture syn of raminfrShrdReg is
   type ram_type is array (size -1 downto 0) of 
        std_logic_vector (typeSize -1 downto 0);
   signal RAM : ram_type;
+		 
+  attribute ram_init_file : string;
+  attribute ram_init_file of RAM : signal is init_file;
 
 begin -- syn
   ----- Read/Write process A   
@@ -699,8 +749,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -760,8 +814,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -770,7 +828,8 @@ entity raminfrSigned is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -789,7 +848,7 @@ architecture syn of raminfrSigned is
 begin 
 
     A1 : raminfr 
-    generic map( size, logsize, typeSize )
+    generic map( size, logsize, typeSize, init_file )
     port map
     (
       clk    => clk,
@@ -809,8 +868,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -819,7 +882,8 @@ entity raminfrSignedReg is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -838,7 +902,7 @@ architecture syn of raminfrSignedReg is
 begin 
 
 	A1 : raminfrReg 
-	generic map( size, logsize, typeSize )
+	generic map( size, logsize, typeSize, init_file )
 	port map
 	(
 	clk    => clk,
@@ -859,8 +923,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -869,7 +937,8 @@ entity raminfrSignedShrd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :      in  std_logic;
 			memclk :   in  std_logic;
@@ -894,7 +963,7 @@ architecture syn of raminfrSignedShrd is
 begin 
 
     A1 : raminfrShrd 
-    generic map( size, logsize, typeSize )
+    generic map( size, logsize, typeSize, init_file )
     port map
     (
       clk    => clk,
@@ -921,8 +990,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -931,7 +1004,8 @@ entity raminfrUnsigned is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -950,7 +1024,7 @@ architecture syn of raminfrUnsigned is
 begin 
 
   A1 : raminfr 
-  generic map( size, logsize, typeSize )
+  generic map( size, logsize, typeSize, init_file )
   port map
   (
     clk => clk,
@@ -970,8 +1044,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -980,7 +1058,8 @@ entity raminfrUnsignedReg is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -999,7 +1078,7 @@ architecture syn of raminfrUnsignedReg is
 begin 
 
 	A1 : raminfrReg 
-	generic map( size, logsize, typeSize )
+	generic map( size, logsize, typeSize, init_file )
 	port map
 	(
 	  clk => clk,
@@ -1020,8 +1099,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -1030,7 +1113,8 @@ entity raminfrUnsignedShrd is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :      in  std_logic;
 			memclk :   in  std_logic;
@@ -1055,7 +1139,7 @@ architecture syn of raminfrUnsignedShrd is
 begin 
 
     A1 : raminfrShrd 
-    generic map( size, logsize, typeSize )
+    generic map( size, logsize, typeSize, init_file )
     port map
     (
       clk    => clk,
@@ -1082,9 +1166,13 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
 
+
+library STD;
+use STD.textio.all;
 use work.conversion.all;
 use work.RodinStd.all;
 
@@ -1092,7 +1180,8 @@ entity raminfrBool is
       generic ( 
 			size :     integer; 
 			logsize :  integer; 
-			typeSize : integer );
+			typeSize : integer;
+            init_file: string );
       port ( 
 			clk :    in  std_logic;
 			memclk : in  std_logic;
@@ -1109,7 +1198,7 @@ architecture syn of raminfrBool is
 
 begin 
   A1 : raminfr
-  generic map( size, logsize, 1 )
+  generic map( size, logsize, 1, init_file )
   port map
   (
     clk => clk,
@@ -1129,8 +1218,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -1139,7 +1232,8 @@ entity raminfrBoolReg is
       generic ( 
 		size :     integer; 
 		logsize :  integer; 
-		typeSize : integer );
+		typeSize : integer;
+        init_file: string );
       port ( 
 		clk :    in  std_logic;
 		memclk : in  std_logic;
@@ -1156,7 +1250,7 @@ architecture syn of raminfrBoolReg is
 
 begin 
 	A1 : raminfrReg
-	generic map( size, logsize, 1 )
+	generic map( size, logsize, 1, init_file )
 	port map
 	(
 	  clk    => clk,
@@ -1176,8 +1270,12 @@ end syn;
 Library IEEE;
 
 use ieee.std_logic_1164.all;
+use ieee.std_logic_textio.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+
+library STD;
+use STD.textio.all;
 
 use work.conversion.all;
 use work.RodinStd.all;
@@ -1235,7 +1333,7 @@ begin
      end process;
 
    C1 : raminfr
-   generic map ( 2**log_size , log_size, 32 )
+   generic map ( 2**log_size , log_size, 32, "" )
    port map
    (
      clk    => clk,

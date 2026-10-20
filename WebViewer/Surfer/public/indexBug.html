@@ -1,0 +1,350 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Novakod Surfer Tabs</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; }
+    #top {
+      padding: 10px; border-bottom: 1px solid #ddd;
+      display:flex; gap:10px; align-items:center;
+    }
+    select, button { padding: 6px 10px; }
+    #status { color:#555; font-size: 13px; margin-left: 8px; }
+
+    /* Tabs */
+    #tabsBar {
+      display:flex; gap:6px; align-items:center;
+      padding: 8px 10px; border-bottom: 1px solid #ddd;
+      overflow-x:auto; white-space:nowrap;
+    }
+    .tab {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border: 1px solid #ccc; border-bottom: none;
+      border-top-left-radius: 8px; border-top-right-radius: 8px;
+      background: #f6f6f6;
+      cursor: pointer;
+      user-select: none;
+    }
+    .tab.active { background: #fff; border-color:#aaa; }
+    .tab .x {
+      font-weight: bold; opacity: 0.6;
+      padding: 0 4px; border-radius: 4px;
+    }
+    .tab .x:hover { opacity: 1; background:#eee; }
+
+    /* Panels */
+    #panels { height: calc(100vh - 52px - 43px); } /* top + tabsBar */
+    .panel { display:none; height:100%; }
+    .panel.active { display:block; }
+    iframe { width:100%; height:100%; border:0; }
+  </style>
+</head>
+<body>
+  <div id="top">
+    <button type="button" id="refresh">List .vcd</button>
+    <select id="files"></select>
+    <button type="button" id="open">Open in new tab</button>
+    <span id="status"></span>
+  </div>
+
+  <div id="tabsBar"></div>
+  <div id="panels"></div>
+
+  <script>
+    const statusEl = document.getElementById("status");
+    const filesEl  = document.getElementById("files");
+    const tabsBar  = document.getElementById("tabsBar");
+    const panels   = document.getElementById("panels");
+
+    function setStatus(s){ statusEl.textContent = s || ""; }
+
+    async function refreshList(){
+      setStatus("Loading list...");
+      const r = await fetch("/api/vcd", { cache: "no-store" });
+      if(!r.ok){ setStatus("List failed: HTTP " + r.status); return; }
+      const list = await r.json();
+      filesEl.innerHTML = "";
+      for(const f of list){
+        const opt = document.createElement("option");
+        opt.value = f; opt.textContent = f;
+        filesEl.appendChild(opt);
+      }
+      setStatus(list.length ? ("Found " + list.length) : "No .vcd files");
+    }
+
+    // ---- Your Surfer batch script ----
+    // Note: Surfer seems happier without semicolons. Keep it simple.
+    function buildBatchText() {
+      return `
+# Add modules/scopes to the view
+module_add top
+
+# Dividers may always insert at end in this Surfer version; keep them if you like
+divider_add "INPUTS"
+
+show iCmd
+show iCmd_ev
+show iloadValue
+
+divider_add "OUTPUTS"
+
+show oValue
+show oValue_ev
+
+toggle_menu
+toggle_side_panel
+
+zoom full
+`.trim() + "\n";
+    }
+
+    // ---- Tabs state ----
+    const tabs = [];
+    let activeTabId = null;
+
+    function setActiveTab(id){
+      activeTabId = id;
+      for(const t of tabs){
+        t.tabEl.classList.toggle("active", t.id === id);
+        t.panelEl.classList.toggle("active", t.id === id);
+      }
+    }
+
+    function closeTab(id){
+      const idx = tabs.findIndex(t => t.id === id);
+      if(idx < 0) return;
+      const t = tabs[idx];
+      t.iframe.src = "about:blank"; // stop workers, free resources
+      t.tabEl.remove();
+      t.panelEl.remove();
+      tabs.splice(idx, 1);
+      if(activeTabId === id){
+        const next = tabs[idx] || tabs[idx-1] || tabs[0];
+        setActiveTab(next ? next.id : null);
+      }
+    }
+
+    function postToIframe(iframe, msg){
+      iframe.contentWindow.postMessage(msg, "*");
+    }
+
+    function inject(iframe, msgObj){
+      const s = JSON.stringify(msgObj);
+      postToIframe(iframe, { command: "InjectMessage", message: s });
+    }
+    
+    function vcdToSucl(name) {
+      return name.replace(/\.vcd$/i, ".sucl");
+    }
+    
+  function parseTopSignalNamesFromVcdText(vcdText) {
+    // Parse until enddefinitions to avoid reading large bodies
+    const endIdx = vcdText.indexOf("$enddefinitions");
+    const header = endIdx >= 0 ? vcdText.slice(0, endIdx + 20) : vcdText;
+  
+    const lines = header.split(/\r?\n/);
+  
+    let inTop = false;
+    const names = [];
+  
+    for (const raw of lines) {
+      const line = raw.trim();
+  
+      if (line.startsWith("$scope")) {
+        // Example: $scope module top $end
+        const m = line.match(/^\$scope\s+\S+\s+(\S+)\s+\$end/);
+        inTop = (m && m[1] === "top");
+        continue;
+      }
+      if (line.startsWith("$upscope")) {
+        inTop = false;
+        continue;
+      }
+      if (!inTop) continue;
+  
+      if (line.startsWith("$var")) {
+        // Typical: $var reg 2 >! iCmd $end
+        // tokens: 0:$var 1:type 2:width 3:idcode 4:name ...
+        const toks = line.split(/\s+/);
+        if (toks.length >= 5) {
+          const name = toks[4];
+          // Filter out odd tokens (just in case)
+          if (name && name !== "$end") names.push(name);
+        }
+      }
+    }
+  
+    // Unique while preserving order
+    const seen = new Set();
+    return names.filter(n => (seen.has(n) ? false : (seen.add(n), true)));
+  }
+  
+  function orderSignalsForNovakod(names) {
+    const isEvent = (n) => n.endsWith("_ev");
+    const baseOfEvent = (n) => n.slice(0, -3);
+  
+    const inputs = [];
+    const outputs = [];
+    const others = [];
+  
+    for (const n of names) {
+      if (isEvent(n)) continue; // we'll insert events right after base
+      if (n.startsWith("i")) inputs.push(n);
+      else if (n.startsWith("o")) outputs.push(n);
+      else others.push(n);
+    }
+  
+    const nameSet = new Set(names);
+  
+    function withEvents(list) {
+      const out = [];
+      for (const n of list) {
+        out.push(n);
+        const ev = n + "_ev";
+        if (nameSet.has(ev)) out.push(ev);
+      }
+      return out;
+    }
+  
+    // If there are events for signals that don't exist as base (rare), append them at end
+    const orphanEvents = names
+      .filter(isEvent)
+      .filter(ev => !nameSet.has(baseOfEvent(ev)));
+  
+    return [
+      ...withEvents(inputs),
+      ...withEvents(outputs),
+      ...withEvents(others),
+      ...orphanEvents
+    ];
+  }
+  
+  function buildSuclFromSignalList(orderedNames) {
+    const lines = [];
+    lines.push("module_add top");
+    lines.push(""); // blank line
+  
+    // Optional dividers only if the group has members
+    const inputs = orderedNames.filter(n => n.startsWith("i") || n.startsWith("i") && n.endsWith("_ev"));
+    const outputs = orderedNames.filter(n => n.startsWith("o") || n.startsWith("o") && n.endsWith("_ev"));
+  
+    // Better grouping: compute from bases, not from ordered list
+    const hasInputs = orderedNames.some(n => n.startsWith("i"));
+    const hasOutputs = orderedNames.some(n => n.startsWith("o"));
+  
+    if (hasInputs) {
+      lines.push('divider_add "INPUTS"');
+      for (const n of orderedNames) if (n.startsWith("i")) lines.push(`show ${n}`);
+      lines.push("");
+    }
+  
+    if (hasOutputs) {
+      lines.push('divider_add "OUTPUTS"');
+      for (const n of orderedNames) if (n.startsWith("o")) lines.push(`show ${n}`);
+      lines.push("");
+    }
+  
+    // Any remaining non-i/non-o signals (optional)
+    const hasOthers = orderedNames.some(n => !n.startsWith("i") && !n.startsWith("o"));
+    if (hasOthers) {
+      lines.push('divider_add "OTHERS"');
+      for (const n of orderedNames) if (!n.startsWith("i") && !n.startsWith("o")) lines.push(`show ${n}`);
+      lines.push("");
+    }
+  
+    // Footer required by you
+    lines.push("toggle_menu");
+    lines.push("toggle_side_panel");
+    lines.push("zoom full");
+  
+    return lines.join("\n") + "\n";
+  }
+
+    async function generateSuclFromVcd(filename) {
+      const r = await fetch("/vcd_header/" + encodeURIComponent(filename), { cache: "no-store" });
+      if (!r.ok) throw new Error("Cannot fetch VCD header: HTTP " + r.status);
+    
+      const headerText = await r.text();
+      const names = parseTopSignalNamesFromVcdText(headerText);
+      const ordered = orderSignalsForNovakod(names);
+      return buildSuclFromSignalList(ordered);
+    }
+
+////////////////////////////////////Function moved with respect to 
+// iframe.addEventListener("load", () => {
+
+function runCommands(iframe, text) {
+  const bytes = Array.from(new TextEncoder().encode(text));
+  inject(iframe, { LoadCommandFromData: bytes });
+}
+
+    function openNewTabForVcd(filename){
+      if(!filename) return;
+
+      const id = String(Date.now()) + "-" + Math.random().toString(16).slice(2);
+      const title = filename;
+
+      // Create tab header
+      const tabEl = document.createElement("div");
+      tabEl.className = "tab";
+      tabEl.innerHTML = `<span class="title"></span><span class="x">&times;</span>`;
+      tabEl.querySelector(".title").textContent = title;
+
+      tabEl.addEventListener("click", (e) => {
+        if(e.target.classList.contains("x")) return;
+        setActiveTab(id);
+      });
+      tabEl.querySelector(".x").addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeTab(id);
+      });
+
+      // Create panel + iframe
+      const panelEl = document.createElement("div");
+      panelEl.className = "panel";
+      const iframe = document.createElement("iframe");
+
+      // Add a cache-busting query so each tab is a distinct load
+      iframe.src = "/surfer/?tab=" + encodeURIComponent(id);
+
+      panelEl.appendChild(iframe);
+
+      tabsBar.appendChild(tabEl);
+      panels.appendChild(panelEl);
+
+      const tabObj = { id, filename, tabEl, panelEl, iframe };
+      tabs.push(tabObj);
+      setActiveTab(id);
+
+iframe.addEventListener("load", () => {
+  const url = location.origin + "/vcd/" + encodeURIComponent(filename);
+
+  setTimeout(() => {
+    // Load VCD
+    inject(iframe, { LoadWaveformFileFromUrl: [url, "Clear"] });
+
+    // Run SUCL soon
+    setTimeout(async () => {
+      let text = await loadSuclTextForVcd(filename);
+      if (!text) text = await generateSuclFromVcd(filename); // if you use JS generation
+
+      runCommands(iframe, text);
+
+      // Retry later (fixes “VCD loaded but no signals yet”)
+      setTimeout(() => runCommands(iframe, text), 2000);
+    }, 800); // bump from 600 to 800 to help
+
+  }, 300);
+});    }
+ 
+    document.getElementById("refresh").addEventListener("click", refreshList);
+    document.getElementById("open").addEventListener("click", () => {
+      openNewTabForVcd(filesEl.value);
+    });
+
+    refreshList().catch(e => setStatus("Error: " + e.message));
+  </script>
+</body>
+</html>

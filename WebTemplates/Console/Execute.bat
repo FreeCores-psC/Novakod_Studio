@@ -33,5 +33,6 @@ goto done
 echo Execute.bat missing parameters: Step ConsolePort BoardPort DebugPort
 
 :done
+
 exit
 

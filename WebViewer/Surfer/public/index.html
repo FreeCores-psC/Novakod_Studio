@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Novakod Surfer Tabs</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; }
+    #top {
+      padding: 10px; border-bottom: 1px solid #ddd;
+      display:flex; gap:10px; align-items:center;
+    }
+    select, button { padding: 6px 10px; }
+    #status { color:#555; font-size: 13px; margin-left: 8px; }
+
+    /* Tabs */
+    #tabsBar {
+      display:flex; gap:6px; align-items:center;
+      padding: 8px 10px; border-bottom: 1px solid #ddd;
+      overflow-x:auto; white-space:nowrap;
+    }
+    .tab {
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border: 1px solid #ccc; border-bottom: none;
+      border-top-left-radius: 8px; border-top-right-radius: 8px;
+      background: #f6f6f6;
+      cursor: pointer;
+      user-select: none;
+    }
+    .tab.active { background: #fff; border-color:#aaa; }
+    .tab .x {
+      font-weight: bold; opacity: 0.6;
+      padding: 0 4px; border-radius: 4px;
+    }
+    .tab .x:hover { opacity: 1; background:#eee; }
+
+    /* Panels */
+    #panels { height: calc(100vh - 52px - 43px); } /* top + tabsBar */
+    .panel { display:none; height:100%; }
+    .panel.active { display:block; }
+    iframe { width:100%; height:100%; border:0; }
+  </style>
+</head>
+<body>
+  <div id="top">
+    <button type="button" id="refresh">List .vcd</button>
+    <select id="files"></select>
+    <button type="button" id="open">Open in new tab</button>
+    <span id="status"></span>
+  </div>
+
+  <div id="tabsBar"></div>
+  <div id="panels"></div>
+
+  <script>
+    const statusEl = document.getElementById("status");
+    const filesEl  = document.getElementById("files");
+    const tabsBar  = document.getElementById("tabsBar");
+    const panels   = document.getElementById("panels");
+
+    function setStatus(s){ statusEl.textContent = s || ""; }
+
+    async function refreshList(){
+      setStatus("Loading list...");
+      const r = await fetch("/api/vcd", { cache: "no-store" });
+      if(!r.ok){ setStatus("List failed: HTTP " + r.status); return; }
+      const list = await r.json();
+      filesEl.innerHTML = "";
+      for(const f of list){
+        const opt = document.createElement("option");
+        opt.value = f; opt.textContent = f;
+        filesEl.appendChild(opt);
+      }
+      setStatus(list.length ? ("Found " + list.length) : "No .vcd files");
+    }
+
+    // ---- Your Surfer batch script ----
+    // Note: Surfer seems happier without semicolons. Keep it simple.
+    function buildBatchText() {
+      return `
+# Add modules/scopes to the view
+module_add top
+
+# Dividers may always insert at end in this Surfer version; keep them if you like
+divider_add "INPUTS"
+
+show iCmd
+show iCmd_ev
+show iloadValue
+
+divider_add "OUTPUTS"
+
+show oValue
+show oValue_ev
+
+toggle_menu
+toggle_side_panel
+
+zoom full
+`.trim() + "\n";
+    }
+
+    // ---- Tabs state ----
+    const tabs = [];
+    let activeTabId = null;
+
+    function setActiveTab(id){
+      activeTabId = id;
+      for(const t of tabs){
+        t.tabEl.classList.toggle("active", t.id === id);
+        t.panelEl.classList.toggle("active", t.id === id);
+      }
+    }
+
+    function closeTab(id){
+      const idx = tabs.findIndex(t => t.id === id);
+      if(idx < 0) return;
+      const t = tabs[idx];
+      t.iframe.src = "about:blank"; // stop workers, free resources
+      t.tabEl.remove();
+      t.panelEl.remove();
+      tabs.splice(idx, 1);
+      if(activeTabId === id){
+        const next = tabs[idx] || tabs[idx-1] || tabs[0];
+        setActiveTab(next ? next.id : null);
+      }
+    }
+
+    function postToIframe(iframe, msg){
+      iframe.contentWindow.postMessage(msg, "*");
+    }
+
+    function inject(iframe, msgObj){
+      const s = JSON.stringify(msgObj);
+      postToIframe(iframe, { command: "InjectMessage", message: s });
+    }
+    
+    function vcdToSucl(name) {
+      return name.replace(/\.vcd$/i, ".sucl");
+    }
+    
+    async function loadSuclTextForVcd(vcdName) {
+      const suclName = vcdToSucl(vcdName);
+      const suclUrl = location.origin + "/sucl/" + encodeURIComponent(suclName); // server route
+      const r = await fetch(suclUrl, { cache: "no-store" });
+      if (!r.ok) return null;
+      return await r.text();
+    }
+    function openNewTabForVcd(filename){
+      if(!filename) return;
+
+      const id = String(Date.now()) + "-" + Math.random().toString(16).slice(2);
+      const title = filename;
+
+      // Create tab header
+      const tabEl = document.createElement("div");
+      tabEl.className = "tab";
+      tabEl.innerHTML = `<span class="title"></span><span class="x">&times;</span>`;
+      tabEl.querySelector(".title").textContent = title;
+
+      tabEl.addEventListener("click", (e) => {
+        if(e.target.classList.contains("x")) return;
+        setActiveTab(id);
+      });
+      tabEl.querySelector(".x").addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeTab(id);
+      });
+
+      // Create panel + iframe
+      const panelEl = document.createElement("div");
+      panelEl.className = "panel";
+      const iframe = document.createElement("iframe");
+
+      // Add a cache-busting query so each tab is a distinct load
+      iframe.src = "/surfer/?tab=" + encodeURIComponent(id);
+
+      panelEl.appendChild(iframe);
+
+      tabsBar.appendChild(tabEl);
+      panels.appendChild(panelEl);
+
+      const tabObj = { id, filename, tabEl, panelEl, iframe };
+      tabs.push(tabObj);
+      setActiveTab(id);
+
+      // When Surfer page loads, send LoadUrl then send command batch
+      iframe.addEventListener("load", () => {
+        const url = location.origin + "/vcd/" + encodeURIComponent(filename);
+      
+        // Wait a bit for WASM + message hooks to be ready
+        setTimeout(() => {
+          // 1) Load VCD (reliable path)
+          inject(iframe, { LoadWaveformFileFromUrl: [url, "Clear"] });
+      
+          // 2) Then run commands after another small delay
+          setTimeout(async () => {
+            let text = await loadSuclTextForVcd(filename);
+            if (!text) text = buildBatchText();   // fallback if no .sucl
+            const bytes = Array.from(new TextEncoder().encode(text));
+            inject(iframe, { LoadCommandFromData: bytes });
+          }, 600);
+      
+        }, 300);
+      });
+    }
+ 
+    document.getElementById("refresh").addEventListener("click", refreshList);
+    document.getElementById("open").addEventListener("click", () => {
+      openNewTabForVcd(filesEl.value);
+    });
+
+    refreshList().catch(e => setStatus("Error: " + e.message));
+  </script>
+</body>
+</html>
