@@ -429,7 +429,9 @@ function base64ToBytes(b64){
 }
 
 function connect(){
-  const url = `ws://${location.hostname}:${WS_PORT}/board`;
+  //const url = `wss://${location.hostname}:${WS_PORT}/board`;
+  const url = `wss://novakod.com:9001//board`;
+
   try{ ws=new WebSocket(url); }catch{ setStatus('layout.json ✓ | WS create failed'); return; }
   ws.onopen=()=>setStatus('layout.json ✓ | WS connected ✓');
   ws.binaryType = "arraybuffer";
@@ -453,18 +455,6 @@ function connect(){
     
   ws.onclose=()=>setStatus('layout.json ✓ | WS disconnected');
   ws.onerror=()=>setStatus('layout.json ✓ | WS error');
-  
-  if (evt.data instanceof ArrayBuffer) {
-    const d = new Uint8Array(evt.data);
-    if (d.length !== 10 || d[0] !== 1) return;
-  
-    const leds = d[1] | (d[2] << 8);
-    setLeds(leds);
-  
-    for (let i = 0; i < 6; i++) {
-      setSeg7(i, d[4 + i]); 
-    }
-  }
 }
 
 function sendWord(wordIndex, value) {

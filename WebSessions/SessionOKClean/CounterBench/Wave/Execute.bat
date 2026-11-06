@@ -24,9 +24,9 @@ set GenVcdFile=%binPath%GenVcdFile.exe
 rem -- Generate environment file
 start /WAIT /MIN %GenEnvFile% %prjDir% Wave %SessionID% %ConsolePort% %BoardPort% %DebugPort%
 
-rem -- Copy the .evi and .evo files
-copy %prjDir%targets\Simulation.evi  %prjDir%targets\%SessionID%.evi
-copy %prjDir%targets\Simulation.evo  %prjDir%targets\%SessionID%.evo
+rem -- Copy the .evi and .evo initial files
+copy %prjDir%targets\Simulation0.evi  %prjDir%targets\Simulation.evi
+copy %prjDir%targets\Simulation0.evo  %prjDir%targets\Simulation.evo
 
 echo Start RVM
 echo =========
@@ -34,7 +34,7 @@ echo =========
 start /WAIT /MIN /D %binPath% %rvm% %brdFile% -MODE SIMULATION -FREQUENCY 50MHZ -MAXSTEP %Step% -NOCONSOLE
 
 rem -- Generate .vcd file
-start /WAIT /MIN /D %binPath% %GenVcdFile% -prj %prjDir% -trg %SessionID% -step 0.02usec
+start /WAIT /MIN /D %binPath% %GenVcdFile% -prj %prjDir% -trg Simulation -step 0.02usec
 
 goto done
 

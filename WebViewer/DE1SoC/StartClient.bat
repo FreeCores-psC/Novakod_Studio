@@ -1,2 +1,2 @@
-start  http://localhost:8000/
+start  http://novakod.com:8000/
 exit
